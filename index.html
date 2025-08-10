@@ -130,8 +130,31 @@
     .filter{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 16px}
     .filter .toggle{padding:8px 12px;border-radius:9999px;border:1px solid rgba(var(--fg),.15);cursor:pointer;background:rgba(var(--fg),.05)}
     .filter .toggle.active{background: rgba(var(--accent), .16); border-color: rgba(var(--accent), .6); color: rgb(var(--accent));}
-    .project{transition: transform .12s ease, box-shadow .2s ease}
-    .project:hover{transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.2)}
+    /* Enhanced project card interactions */
+    .project{
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .project:hover{
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0,0,0,.3);
+    }
+    /* Sliding overlay for a subtle sheen on hover */
+    .project::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(var(--accent), 0.08);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .project:hover::before{
+      opacity: 1;
+      transform: translateY(0);
+    }
     .badge{font-size:12px;border:1px solid rgba(var(--fg),.15);border-radius:9999px;padding:4px 8px;color:rgb(var(--muted))}
     .theme-switch{border:1px solid rgba(var(--fg),.2); background:rgba(var(--fg),.06); padding:8px 10px; border-radius:9999px; cursor:pointer}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -212,7 +235,8 @@
         </div>
       </div>
       <div class="card">
-        <img src="portrait.png" alt="Abstract professional portrait" class="portrait" />
+        <!-- Replace this src with your own portrait image if available -->
+        <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
         <h2 style="margin-top:0">Now</h2>
         <ul class="bullets">
           <li>Engineering ETL pipelines in <strong>Alteryx + Python</strong> that eliminated <strong>4 hours/day</strong> of manual processing and accelerated reporting.</li>
@@ -336,6 +360,7 @@
           <p class="muted">Multi‑user Java LMS with real‑time sync and JUnit tests; enabled teachers to create courses, assignments, and grading.</p>
           <div class="stack">
             <span class="chip">Java</span><span class="chip">JUnit</span>
+            <a class="badge" href="https://github.com/KingShmo/Project-4-/tree/Perfect" target="_blank" rel="noopener">Repo</a>
           </div>
         </article>
       </div>
@@ -517,6 +542,22 @@
         }
       }, { threshold: 0.5 });
       observer.observe(bar);
+    });
+
+    // Fade-in and slide-up animation for project cards on scroll
+    const projectObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          projectObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.project').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      projectObserver.observe(card);
     });
   </script>
 </body>
