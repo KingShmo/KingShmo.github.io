@@ -184,6 +184,71 @@
     .focus-item{ display:flex; align-items:center; gap:0.5rem; padding:0.8rem; background: rgba(var(--fg), .06); border-radius:8px; transition: transform 0.2s ease; font-size:14px; }
     .focus-item i{ color: rgb(var(--accent)); }
     .focus-item:hover{ transform: translateX(5px); }
+
+    /* Portrait container for real photo and illustration side-by-side */
+    .portrait-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    @media (min-width: 700px) {
+      .portrait-container {
+        flex-direction: row;
+      }
+    }
+    /* Illustration styling mirrors the portrait card */
+    .illustration {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.4);
+      object-fit: cover;
+    }
+    /* Links underneath the hero portrait section */
+    .hero-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .hero-links a {
+      color: rgb(var(--fg));
+      font-size: 28px;
+      transition: transform .2s ease, color .2s ease;
+    }
+    .hero-links a:hover {
+      transform: translateY(-2px);
+      color: rgb(var(--accent));
+    }
+
+    /* Custom monogram and social icon styles */
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--ring)));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      margin-right: 12px;
+      box-shadow: 0 4px 8px rgba(var(--accent), 0.4);
+    }
+    .social-links {
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .social-links a {
+      color: rgb(var(--fg));
+      font-size: 24px;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .social-links a:hover {
+      transform: translateY(-2px);
+      color: rgb(var(--accent));
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -205,7 +270,8 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
+        <!-- Monogram logo with initials AK -->
+        <span class="logo">AK</span>
         <span>Anish Ketha</span>
       </div>
       <nav class="stack" aria-label="Primary">
@@ -235,9 +301,18 @@
         </div>
       </div>
       <div class="card">
-        <!-- Replace this src with your own portrait image if available -->
-        <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
-        <h2 style="margin-top:0">Now</h2>
+        <!-- Show both the professional portrait and a fun illustration to add personality -->
+        <div class="portrait-container">
+          <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
+          <img src="coding_cartoon.png" alt="Illustrated depiction of Anish Ketha working at a laptop" class="illustration" />
+        </div>
+        <!-- Social links directly under the portrait/illustration -->
+        <div class="hero-links">
+          <a href="https://www.linkedin.com/in/anishketha" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/KingShmo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Download resume"><i class="fas fa-file-lines"></i></a>
+        </div>
+        <h2 style="margin-top:12px">Now</h2>
         <ul class="bullets">
           <li>Engineering ETL pipelines in <strong>Alteryx + Python</strong> that eliminated <strong>4 hours/day</strong> of manual processing and accelerated reporting.</li>
           <li>Prototyping <strong>WayFindAR</strong>: AR indoor navigation with <strong>LLM‑guided</strong> route intelligence and Blender‑made scenes.</li>
@@ -253,7 +328,7 @@
     </section>
 
     <section id="experience">
-      <div class="section-title"><h2>Experience</h2></div>
+      <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
       <div class="grid">
         <article class="card item span-6">
           <div style="display:flex;justify-content:space-between;align-items:center">
@@ -294,7 +369,7 @@
     </section>
 
     <section id="projects">
-      <div class="section-title"><h2>Projects</h2></div>
+      <div class="section-title"><h2><i class="fas fa-code"></i> Projects</h2></div>
       <div class="filter" aria-label="Project filters">
         <button class="toggle active" data-tag="all">All</button>
         <button class="toggle" data-tag="ml">ML/AI</button>
@@ -367,7 +442,7 @@
     </section>
 
     <section id="skills">
-      <div class="section-title"><h2>Skills</h2></div>
+      <div class="section-title"><h2><i class="fas fa-lightbulb"></i> Skills</h2></div>
       <div class="grid">
         <div class="card span-6">
           <h3>Core Languages</h3>
@@ -480,7 +555,7 @@
     </section>
 
     <section id="contact">
-      <div class="section-title"><h2>Contact</h2></div>
+      <div class="section-title"><h2><i class="fas fa-envelope"></i> Contact</h2></div>
       <div class="card">
         <div class="grid">
           <div class="span-6">
@@ -490,11 +565,18 @@
           </div>
           <div class="span-6">
             <p><strong>Links:</strong></p>
-            <p>
-              <a href="https://www.linkedin.com/in/anishketha" target="_blank" rel="noopener">LinkedIn</a> ·
-              <a href="https://github.com/KingShmo" target="_blank" rel="noopener">GitHub</a> ·
-              <a href="Anish_Ketha_Resume_2026.pdf" download>Resume</a>
-            </p>
+            <!-- Social media icons replacing plain text links -->
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/anishketha" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/KingShmo" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Resume">
+                <i class="fas fa-file-lines"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
