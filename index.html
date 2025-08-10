@@ -211,13 +211,14 @@
       margin-top: 12px;
     }
     .hero-links a {
-      color: rgb(var(--fg));
+      /* Use accent colour for hero icons */
+      color: rgb(var(--accent));
       font-size: 28px;
       transition: transform .2s ease, color .2s ease;
     }
     .hero-links a:hover {
       transform: translateY(-2px);
-      color: rgb(var(--accent));
+      color: rgb(var(--ring));
     }
 
     /* Custom monogram and social icon styles */
@@ -241,13 +242,15 @@
       align-items:center;
     }
     .social-links a {
-      color: rgb(var(--fg));
+      /* Use accent color for icons so they stand out on dark and light themes */
+      color: rgb(var(--accent));
       font-size: 24px;
       transition: transform 0.2s ease, color 0.2s ease;
     }
     .social-links a:hover {
       transform: translateY(-2px);
-      color: rgb(var(--accent));
+      /* Use ring accent on hover for a subtle contrast */
+      color: rgb(var(--ring));
     }
   </style>
   <script type="application/ld+json">
@@ -275,6 +278,7 @@
         <span>Anish Ketha</span>
       </div>
       <nav class="stack" aria-label="Primary">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
@@ -286,7 +290,7 @@
   </header>
 
   <main class="container">
-    <section id="about" class="hero">
+    <section id="home" class="hero">
       <div class="card">
         <h1>ML Engineer &amp; SWE building<span class="muted"> data‑driven systems</span> and <span class="muted">polished product experiences</span>.</h1>
         <p class="muted">Purdue CS &amp; Finance (’26). Hackathon podiums at JPMorgan Chase (3rd) and Ignite WebAR &amp; AI (2nd). I design for clarity, ship with quality, and sweat the details.</p>
@@ -301,12 +305,10 @@
         </div>
       </div>
       <div class="card">
-        <!-- Show both the professional portrait and a fun illustration to add personality -->
-        <div class="portrait-container">
+        <!-- Professional portrait for the hero section -->
+        
           <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
-          <img src="coding_cartoon.png" alt="Illustrated depiction of Anish Ketha working at a laptop" class="illustration" />
-        </div>
-        <!-- Social links directly under the portrait/illustration -->
+        <!-- Social links directly under the portrait -->
         <div class="hero-links">
           <a href="https://www.linkedin.com/in/anishketha" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="https://github.com/KingShmo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -323,6 +325,20 @@
           <span class="chip">Python</span><span class="chip">Java</span><span class="chip">TypeScript</span>
           <span class="chip">React</span><span class="chip">Spring Boot</span><span class="chip">YOLOv8</span>
           <span class="chip">EasyOCR</span><span class="chip">AWS Amplify</span><span class="chip">Neo4j</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me section with a personal illustration and bio -->
+    <section id="about">
+      <div class="section-title"><h2><i class="fas fa-user"></i> About Me</h2></div>
+      <div class="card">
+        <div class="portrait-container">
+          <img src="coding_cartoon.png" alt="Illustrated depiction of Anish Ketha coding" class="illustration" />
+          <div>
+            <p>Hello! I'm a senior at Purdue University majoring in Computer Science and Finance. Over the past few years I've completed internships and projects across machine learning, fintech and software engineering, honing skills in ETL automation, AR navigation and full‑stack development.</p>
+            <p>I’m currently seeking co‑op, internship and full‑time opportunities in machine learning engineering, software engineering and quantitative research. I thrive on building polished, data‑driven systems and enjoy combining analytical rigor with creative design.</p>
+          </div>
         </div>
       </div>
     </section>
