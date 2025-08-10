@@ -3,33 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anish Ketha — ML Engineer & SWE Portfolio</title>
+  <title>Anish Ketha — ML Engineer &amp; SWE Portfolio</title>
   <link rel="canonical" href="https://KingShmo.github.io/">
   <meta name="robots" content="index,follow" />
-
   <!-- Primary description -->
-  <meta name="description" content="Portfolio of Anish Ketha — ML Engineer & Software Engineer. Projects: WayFindAR (AR + LLM), Chase Wrapped (Hackathon podium), ML/Quant, and more." />
-
+  <meta name="description" content="Portfolio of Anish Ketha — ML Engineer &amp; Software Engineer. Projects: WayFindAR, Chase Wrapped, ML/Quant research, and more." />
   <!-- Open Graph -->
   <meta property="og:site_name" content="Anish Ketha" />
   <meta property="og:url" content="https://KingShmo.github.io/" />
-  <meta property="og:title" content="Anish Ketha — ML Engineer & SWE" />
-  <meta property="og:description" content="AR + LLM navigation, ETL automation, and full-stack builds." />
+  <meta property="og:title" content="Anish Ketha — ML Engineer &amp; SWE" />
+  <meta property="og:description" content="AR + LLM navigation, ETL automation, and full‑stack builds." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://KingShmo.github.io/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Anish Ketha — ML Engineer & SWE" />
-  <meta name="twitter:description" content="AR + LLM navigation, ETL automation, and full-stack builds." />
+  <meta name="twitter:title" content="Anish Ketha — ML Engineer &amp; SWE" />
+  <meta name="twitter:description" content="AR + LLM navigation, ETL automation, and full‑stack builds." />
   <meta name="twitter:image" content="https://KingShmo.github.io/og-card.png" />
 
+  <!-- Favicon and theme -->
   <meta name="theme-color" content="#0ea5e9" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230ea5e9'/%3E%3Ctext x='50' y='60' font-size='56' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EA%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230ea5e9'/%3E%3Ctext x='50' y='60' font-size='56' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EA%3C/text%3E%3C/svg%3E">
 
-  <!-- Plausible analytics (lightweight) -->
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-X6eBzpihWkYw1AzRB4sJKYrOuwOhmgJcR7fjyGjb7rm7mhXoA66y0bFqt0plIyv8FqaXXeST1f6EBhmri96qKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Analytics (Plausible) -->
   <script defer data-domain="KingShmo.github.io" src="https://plausible.io/js/script.js"></script>
 
   <style>
@@ -38,7 +39,7 @@
       --fg:  245 245 250;
       --muted: 170 170 180;
       --card: 22 22 28;
-      --accent: 14 165 233; /* sky-500 */
+      --accent: 14 165 233; /* sky‑500 */
       --ring: 59 130 246;
       --shadow: 0 0 0;
     }
@@ -47,7 +48,7 @@
       --fg:  17 24 39;
       --muted: 99 99 112;
       --card: 255 255 255;
-      --accent: 2 132 199; /* sky-600 */
+      --accent: 2 132 199; /* sky‑600 */
       --ring: 2 132 199;
       --shadow: 0 0 0;
     }
@@ -134,8 +135,33 @@
     .badge{font-size:12px;border:1px solid rgba(var(--fg),.15);border-radius:9999px;padding:4px 8px;color:rgb(var(--muted))}
     .theme-switch{border:1px solid rgba(var(--fg),.2); background:rgba(var(--fg),.06); padding:8px 10px; border-radius:9999px; cursor:pointer}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    /* Portrait styling */
+    .portrait{
+      width:100%;
+      border-radius:16px;
+      margin-bottom:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.4);
+      object-fit:cover;
+    }
+    /* Skills section styles */
+    .skill-grid{ display:flex; flex-direction:column; gap:1rem; }
+    .skill-item{ background: rgba(var(--fg), .06); padding:0.8rem; border-radius:8px; }
+    .skill-header{ display:flex; justify-content:space-between; margin-bottom:0.5rem; }
+    .skill-bar{ height:8px; background: rgba(var(--fg),0.15); border-radius:4px; overflow:hidden; }
+    .skill-progress{ height:100%; background: linear-gradient(90deg, rgb(var(--accent)) 0%, rgb(var(--ring)) 100%); border-radius:4px; transition: width 1s ease; }
+    .tech-grid{ display:flex; flex-direction:column; gap:1rem; }
+    .tech-category h4{ margin:0 0 0.4rem 0; font-size:16px; font-weight:600; color:rgb(var(--fg)); }
+    .tech-items{ display:flex; flex-wrap:wrap; gap:0.25rem; }
+    .tech-chip{ background: linear-gradient(135deg, rgb(var(--accent)) 0%, rgb(var(--ring)) 100%); color:#fff; padding:0.5rem 1rem; border-radius:20px; margin:0.25rem; display:inline-block; transition: transform 0.2s ease; font-size:14px; }
+    .tech-chip:hover{ transform: translateY(-2px); }
+    .cert-grid{ display:flex; flex-direction:column; gap:0.6rem; }
+    .cert-item{ display:flex; align-items:center; gap:0.6rem; font-size:14px; }
+    .cert-item i{ color: rgb(var(--accent)); }
+    .focus-grid{ display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .focus-item{ display:flex; align-items:center; gap:0.5rem; padding:0.8rem; background: rgba(var(--fg), .06); border-radius:8px; transition: transform 0.2s ease; font-size:14px; }
+    .focus-item i{ color: rgb(var(--accent)); }
+    .focus-item:hover{ transform: translateX(5px); }
   </style>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -173,11 +199,11 @@
   <main class="container">
     <section id="about" class="hero">
       <div class="card">
-        <h1>ML Engineer & SWE building<span class="muted"> data-driven systems</span> and <span class="muted">polished product experiences</span>.</h1>
-        <p class="muted">Purdue CS & Finance (’26). Hackathon podiums at JPMorgan Chase (3rd) and Ignite WebAR & AI (2nd). I design for clarity, ship with quality, and sweat the details.</p>
+        <h1>ML Engineer &amp; SWE building<span class="muted"> data‑driven systems</span> and <span class="muted">polished product experiences</span>.</h1>
+        <p class="muted">Purdue CS &amp; Finance (’26). Hackathon podiums at JPMorgan Chase (3rd) and Ignite WebAR &amp; AI (2nd). I design for clarity, ship with quality, and sweat the details.</p>
         <div class="kpi" role="list" aria-label="Highlights">
           <div class="pill" role="listitem">JPMorgan Global Hackathon — 3rd</div>
-          <div class="pill" role="listitem">Ignite Pitch-Off (WebAR & AI) — 2nd</div>
+          <div class="pill" role="listitem">Ignite Pitch‑Off (WebAR &amp; AI) — 2nd</div>
           <div class="pill" role="listitem">Dean’s List — College of Science</div>
         </div>
         <div style="display:flex;gap:12px;margin-top:18px">
@@ -186,10 +212,11 @@
         </div>
       </div>
       <div class="card">
+        <img src="portrait.png" alt="Abstract professional portrait" class="portrait" />
         <h2 style="margin-top:0">Now</h2>
         <ul class="bullets">
           <li>Engineering ETL pipelines in <strong>Alteryx + Python</strong> that eliminated <strong>4 hours/day</strong> of manual processing and accelerated reporting.</li>
-          <li>Prototyping <strong>WayFindAR</strong>: AR indoor navigation with <strong>LLM-guided</strong> route intelligence and Blender-made scenes.</li>
+          <li>Prototyping <strong>WayFindAR</strong>: AR indoor navigation with <strong>LLM‑guided</strong> route intelligence and Blender‑made scenes.</li>
           <li>Shipping usable UI with React/TypeScript and clean, testable backend endpoints in Java/Spring.</li>
         </ul>
         <div class="divider"></div>
@@ -206,17 +233,16 @@
       <div class="grid">
         <article class="card item span-6">
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>JPMorgan Chase — Global Finance & Business Mgmt</h3>
+            <h3>JPMorgan Chase — Global Finance &amp; Business Mgmt</h3>
             <span class="badge">Summer 2025 • Newark, DE</span>
           </div>
           <p class="muted"><em>Corporate Summer Analyst</em></p>
           <ul class="bullets">
-            <li>Built end-to-end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity for stakeholders.</li>
-            <li>Worked in <strong>agile</strong> cadence (stand-ups, sprint planning) to hit MVP checkpoints.</li>
-            <li>Co-created <strong>Chase Wrapped</strong> (Java/Spring/React) turning complex financials into interactive narratives — <strong>3rd place</strong> at firmwide hackathon.</li>
+            <li>Built end‑to‑end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity for stakeholders.</li>
+            <li>Worked in <strong>agile</strong> cadence (stand‑ups, sprint planning) to hit MVP checkpoints.</li>
+            <li>Co‑created <strong>Chase Wrapped</strong> (Java/Spring/React) turning complex financials into interactive narratives — <strong>3rd place</strong> at firmwide hackathon.</li>
           </ul>
         </article>
-
         <article class="card item span-6">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <h3>Ascendion</h3>
@@ -229,15 +255,14 @@
             <li>Built an <strong>NLP healthcare chatbot</strong> to suggest likely conditions and potential treatments.</li>
           </ul>
         </article>
-
         <article class="card item span-6">
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>Liberty Coca-Cola</h3>
+            <h3>Liberty Coca‑Cola</h3>
             <span class="badge">Summer 2022 • Brooklyn, NY</span>
           </div>
           <p class="muted"><em>Asset Auditor</em></p>
           <ul class="bullets">
-            <li>Audited equipment across Staten Island & Brooklyn; produced trend reports in Excel & PowerPoint.</li>
+            <li>Audited equipment across Staten Island &amp; Brooklyn; produced trend reports in Excel &amp; PowerPoint.</li>
             <li>Identified target locations to optimize customer retention and daily route efficiency.</li>
           </ul>
         </article>
@@ -249,15 +274,14 @@
       <div class="filter" aria-label="Project filters">
         <button class="toggle active" data-tag="all">All</button>
         <button class="toggle" data-tag="ml">ML/AI</button>
-        <button class="toggle" data-tag="fullstack">Full-stack</button>
+        <button class="toggle" data-tag="fullstack">Full‑stack</button>
         <button class="toggle" data-tag="ar">AR/3D</button>
         <button class="toggle" data-tag="quant">Finance/Quant</button>
       </div>
-
       <div class="grid" id="project-grid">
         <article class="card item project span-6" data-tags="ar fullstack">
           <h3>WayFindAR</h3>
-          <p class="muted">Web/mobile indoor navigation overlaying <strong>3D directions</strong> on camera feeds (TypeScript, Three.js, Java). <strong>LLM-guided</strong> route tips and Blender scenes. <strong>Ignite Pitch-Off — 2nd</strong>.</p>
+          <p class="muted">Web/mobile indoor navigation overlaying <strong>3D directions</strong> on camera feeds (TypeScript, Three.js, Java). <strong>LLM‑guided</strong> route tips and Blender scenes. <strong>Ignite Pitch‑Off — 2nd</strong>.</p>
           <div class="stack">
             <span class="chip">TypeScript</span><span class="chip">Three.js</span><span class="chip">Java</span><span class="chip">LLMs</span><span class="chip">Blender</span>
           </div>
@@ -266,7 +290,6 @@
             <a class="badge" href="https://youtu.be/5oLOx7MUNLE" target="_blank" rel="noopener">Pitch video</a>
           </div>
         </article>
-
         <article class="card item project span-6" data-tags="fullstack ml">
           <h3>Chase Wrapped</h3>
           <p class="muted">Interactive narratives for financial summaries using <strong>Java, Spring Boot, React</strong>. <strong>3rd place</strong> at JPMorgan Global Hackathon.</p>
@@ -277,7 +300,6 @@
             <a class="badge" href="https://youtu.be/_kFUI5TX-qA" target="_blank" rel="noopener">Demo</a>
           </div>
         </article>
-
         <article class="card item project span-6" data-tags="ml">
           <h3>Automated ERD Grade Prediction</h3>
           <p class="muted">Dataset creation in Roboflow; trained <strong>YOLOv8</strong> to detect ERD components; <strong>EasyOCR</strong> to extract text; automated grading predictions.</p>
@@ -285,37 +307,33 @@
             <span class="chip">YOLOv8</span><span class="chip">Python</span><span class="chip">EasyOCR</span><span class="chip">Roboflow</span>
           </div>
         </article>
-
         <article class="card item project span-6" data-tags="quant">
-          <h3>Factor-Based Stock-Picking</h3>
+          <h3>Factor‑Based Stock‑Picking</h3>
           <p class="muted">Ranked U.S. equities by Momentum, Value, Quality, Defensive; backtested deciles; visualized return spreads and growth of $1.</p>
           <div class="stack">
             <span class="chip">R</span><span class="chip">Quarto</span>
             <a class="badge" href="https://github.com/KingShmo/Financial-Modeling-in-R-/blob/main/Anish%20Ketha%20-%20Project%203%20-%20Create%20a%20Stock-Picking%20Strategy.pdf" target="_blank" rel="noopener">Paper</a>
           </div>
         </article>
-
         <article class="card item project span-6" data-tags="quant">
-          <h3>Dual-Analysis Market-Timing</h3>
-          <p class="muted">Signals from P/D ratio + 21-day SMA; sorted into deciles; graphed quarterly spreads and returns.</p>
+          <h3>Dual‑Analysis Market‑Timing</h3>
+          <p class="muted">Signals from P/D ratio + 21‑day SMA; sorted into deciles; graphed quarterly spreads and returns.</p>
           <div class="stack">
             <span class="chip">R</span><span class="chip">Quarto</span>
             <a class="badge" href="https://github.com/KingShmo/Financial-Modeling-in-R-/blob/main/Anish%20Ketha%20-%20Project%202_%20Create%20a%20Market-Timing%20Strategy.pdf" target="_blank" rel="noopener">Paper</a>
           </div>
         </article>
-
         <article class="card item project span-6" data-tags="ml">
           <h3>Credit Card Fraud Detection</h3>
-          <p class="muted">Feature engineering on time intervals & spending patterns; trained Naive Bayes & Random Forest with CV to classify fraud.</p>
+          <p class="muted">Feature engineering on time intervals &amp; spending patterns; trained Naive Bayes &amp; Random Forest with CV to classify fraud.</p>
           <div class="stack">
             <span class="chip">Python</span><span class="chip">Jupyter</span>
             <a class="badge" href="https://github.com/KingShmo/Credit-Card-Fraud-Classification-Model-/blob/main/Credit%20Card%20Fraud%20Classification%20Model.pdf" target="_blank" rel="noopener">Writeup</a>
           </div>
         </article>
-
         <article class="card item project span-6" data-tags="fullstack">
           <h3>Learning Management System</h3>
-          <p class="muted">Multi-user Java LMS with real-time sync and JUnit tests; enabled teachers to create courses, assignments, and grading.</p>
+          <p class="muted">Multi‑user Java LMS with real‑time sync and JUnit tests; enabled teachers to create courses, assignments, and grading.</p>
           <div class="stack">
             <span class="chip">Java</span><span class="chip">JUnit</span>
           </div>
@@ -327,27 +345,110 @@
       <div class="section-title"><h2>Skills</h2></div>
       <div class="grid">
         <div class="card span-6">
-          <h3>Languages</h3>
-          <div class="stack">
-            <span class="chip">Python</span><span class="chip">Java</span><span class="chip">TypeScript</span><span class="chip">C</span><span class="chip">C#</span><span class="chip">C++</span><span class="chip">SQL</span><span class="chip">R</span><span class="chip">HTML/CSS</span><span class="chip">Swift</span>
+          <h3>Core Languages</h3>
+          <div class="skill-grid">
+            <!-- Example language bars; feel free to adjust percentages -->
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Python</span>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>Java</span>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>TypeScript</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <span>C/C++</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card span-6">
-          <h3>Frameworks & Tools</h3>
-          <div class="stack">
-            <span class="chip">React</span><span class="chip">Spring Boot</span><span class="chip">Flask</span><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">YOLOv8</span><span class="chip">EasyOCR</span><span class="chip">Node.js</span><span class="chip">AWS Amplify</span><span class="chip">Oracle</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Neo4j</span><span class="chip">Alteryx</span><span class="chip">Git</span><span class="chip">TeamCity</span>
+          <h3>Technologies &amp; Frameworks</h3>
+          <div class="tech-grid">
+            <div class="tech-category">
+              <h4>ML/AI</h4>
+              <div class="tech-items">
+                <span class="tech-chip">TensorFlow</span>
+                <span class="tech-chip">Keras</span>
+                <span class="tech-chip">YOLOv8</span>
+                <span class="tech-chip">EasyOCR</span>
+              </div>
+            </div>
+            <div class="tech-category">
+              <h4>Web Development</h4>
+              <div class="tech-items">
+                <span class="tech-chip">React</span>
+                <span class="tech-chip">Spring Boot</span>
+                <span class="tech-chip">Flask</span>
+                <span class="tech-chip">Node.js</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card span-6">
-          <h3>Certifications</h3>
-          <div class="stack">
-            <span class="chip">Alteryx Designer Core</span><span class="chip">Bloomberg Market Concepts (BMC)</span>
+          <h3>Certifications &amp; Achievements</h3>
+          <div class="cert-grid">
+            <div class="cert-item">
+              <i class="fas fa-certificate"></i>
+              <span>Alteryx Designer Core</span>
+            </div>
+            <div class="cert-item">
+              <i class="fas fa-award"></i>
+              <span>Bloomberg Market Concepts (BMC)</span>
+            </div>
+            <div class="cert-item">
+              <i class="fas fa-medal"></i>
+              <span>JPMorgan Global Hackathon – 3rd Place</span>
+            </div>
+            <div class="cert-item">
+              <i class="fas fa-medal"></i>
+              <span>Ignite WebAR &amp; AI Pitch‑Off – 2nd Place</span>
+            </div>
           </div>
         </div>
         <div class="card span-6">
-          <h3>Interests</h3>
-          <div class="stack">
-            <span class="chip">FinTech</span><span class="chip">Automation</span><span class="chip">AR/3D</span><span class="chip">Quant Research</span>
+          <h3>Areas of Focus</h3>
+          <div class="focus-grid">
+            <div class="focus-item">
+              <i class="fas fa-chart-line"></i>
+              <span>FinTech</span>
+            </div>
+            <div class="focus-item">
+              <i class="fas fa-robot"></i>
+              <span>Automation</span>
+            </div>
+            <div class="focus-item">
+              <i class="fas fa-vr-cardboard"></i>
+              <span>AR/3D</span>
+            </div>
+            <div class="focus-item">
+              <i class="fas fa-brain"></i>
+              <span>Quant Research</span>
+            </div>
           </div>
         </div>
       </div>
@@ -360,7 +461,7 @@
           <div class="span-6">
             <p><strong>Based in:</strong> New York</p>
             <p><strong>Email:</strong> <a href="mailto:kethaa0314@gmail.com">kethaa0314@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+17327725810">+1 (732) 772-5810</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+17327725810">+1 (732) 772‑5810</a></p>
           </div>
           <div class="span-6">
             <p><strong>Links:</strong></p>
@@ -373,17 +474,14 @@
         </div>
       </div>
     </section>
-
     <footer class="container footer">
       <div class="divider"></div>
       <p>© <span id="y"></span> Anish Ketha — Crafted with semantic HTML, accessible UI, and zero frameworks.</p>
     </footer>
   </main>
-
   <script>
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
-
     // Theme toggle (persisted)
     const html = document.documentElement;
     const btn = document.getElementById('theme');
@@ -395,7 +493,6 @@
       btn.setAttribute('aria-pressed', light);
       localStorage.setItem('theme', light ? 'light' : '');
     });
-
     // Project filter
     const toggles = document.querySelectorAll('.toggle');
     const cards = document.querySelectorAll('.project');
@@ -408,6 +505,19 @@
         c.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
       });
     }));
+    // Animate skill progress bars on scroll into view
+    const progressBars = document.querySelectorAll('.skill-progress');
+    progressBars.forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0%';
+      const observer = new IntersectionObserver(entries => {
+        if(entries[0].isIntersecting){
+          bar.style.width = width;
+          observer.unobserve(bar);
+        }
+      }, { threshold: 0.5 });
+      observer.observe(bar);
+    });
   </script>
 </body>
 </html>

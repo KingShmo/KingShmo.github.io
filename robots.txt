@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Let search engines know where the sitemap lives
 Sitemap: https://KingShmo.github.io/sitemap.xml
