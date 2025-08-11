@@ -3,24 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anish Ketha — ML Engineer &amp; SWE Portfolio</title>
+  <title>Anish Ketha — ML Engineer & SWE Portfolio</title>
   <link rel="canonical" href="https://KingShmo.github.io/">
   <meta name="robots" content="index,follow" />
+
   <!-- Primary description -->
-  <meta name="description" content="Portfolio of Anish Ketha — ML Engineer &amp; Software Engineer. Projects: WayFindAR, Chase Wrapped, ML/Quant research, and more." />
+  <meta name="description" content="Portfolio of Anish Ketha — ML Engineer & Software Engineer. Projects: WayFindAR, Chase Wrapped, ML/Quant research, and more." />
+
   <!-- Open Graph -->
   <meta property="og:site_name" content="Anish Ketha" />
   <meta property="og:url" content="https://KingShmo.github.io/" />
-  <meta property="og:title" content="Anish Ketha — ML Engineer &amp; SWE" />
-  <meta property="og:description" content="AR + LLM navigation, ETL automation, and full‑stack builds." />
+  <meta property="og:title" content="Anish Ketha — ML Engineer & SWE" />
+  <meta property="og:description" content="AR + LLM navigation, ETL automation, and full-stack builds." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://KingShmo.github.io/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Anish Ketha — ML Engineer &amp; SWE" />
-  <meta name="twitter:description" content="AR + LLM navigation, ETL automation, and full‑stack builds." />
+  <meta name="twitter:title" content="Anish Ketha — ML Engineer & SWE" />
+  <meta name="twitter:description" content="AR + LLM navigation, ETL automation, and full-stack builds." />
   <meta name="twitter:image" content="https://KingShmo.github.io/og-card.png" />
 
   <!-- Favicon and theme -->
@@ -34,146 +37,14 @@
   <script defer data-domain="KingShmo.github.io" src="https://plausible.io/js/script.js"></script>
 
   <style>
-    .about-section {
-  text-align: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-.about-header {
-  color: rgb(var(--fg));
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  font-size: 1.2rem;
-  opacity: 0;
-  animation: fadeInUp 0.6s ease forwards;
-}
-.about-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 800;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards 0.1s;
-}
-.about-flex {
-  display: flex;
-  align-items: flex-start;
-  gap: 2.5rem;
-  margin-top: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards 0.2s;
-}
-.about-cartoon {
-  width: 180px;
-  min-width: 120px;
-  max-width: 30vw;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
-  object-fit: cover;
-  margin-bottom: 18px;
-  transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
-}
-.about-cartoon:hover {
-  transform: translateY(-8px) scale(1.04);
-  box-shadow: 0 8px 24px rgba(14,165,233,0.18);
-}
-.about-main {
-  flex: 1;
-  min-width: 260px;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-.about-stats {
-  display: flex;
-  gap: 2rem;
-  justify-content: flex-start;
-  margin-bottom: 1.2rem;
-  flex-wrap: wrap;
-}
-.about-card {
-  background: #fff;
-  color: #222;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  padding: 1.2rem 2.2rem;
-  min-width: 180px;
-  transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.7s ease forwards 0.3s;
-}
-.about-card:hover {
-  box-shadow: 0 8px 32px rgba(14,165,233,0.13);
-  transform: translateY(-6px) scale(1.03);
-}
-.about-icon {
-  font-size: 2.2rem;
-  color: rgb(var(--accent));
-  margin-bottom: 0.5rem;
-}
-.about-title {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 0.2rem;
-}
-.about-desc {
-  font-size: 1rem;
-  color: #444;
-  margin-bottom: 0.2rem;
-}
-.about-text {
-  text-align: left;
-  font-size: 1.08rem;
-  line-height: 1.8;
-  color: rgb(var(--muted));
-  margin-top: 0.5rem;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.7s ease forwards 0.4s;
-}
-@media (max-width: 900px) {
-  .about-flex {
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-main {
-    align-items: center;
-  }
-  .about-text {
-    text-align: center;
-  }
-  .about-stats {
-    justify-content: center;
-  }
-}
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* ---------- Theme tokens ---------- */
     :root{
       --bg:  12 12 16;
       --fg:  245 245 250;
       --muted: 170 170 180;
       --card: 22 22 28;
-      --accent: 14 165 233; /* sky‑500 */
-      --ring: 59 130 246;
+      --accent: 14 165 233; /* sky-500 */
+      --ring: 59 130 246;   /* blue-500 */
       --shadow: 0 0 0;
     }
     :root.light{
@@ -181,24 +52,45 @@
       --fg:  17 24 39;
       --muted: 99 99 112;
       --card: 255 255 255;
-      --accent: 2 132 199; /* sky‑600 */
+      --accent: 2 132 199; /* sky-600 */
       --ring: 2 132 199;
       --shadow: 0 0 0;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color: rgb(var(--fg));
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(var(--accent),0.12), transparent 60%),
-                  radial-gradient(1000px 600px at -10% 120%, rgba(var(--ring),0.12), transparent 60%),
-                  rgb(var(--bg));
+      background: rgb(var(--bg)); /* base underlay for the poly svg */
       line-height: 1.6;
     }
     a{color: rgb(var(--accent)); text-decoration: none}
     a:hover{text-decoration: underline}
     .container{max-width:1100px;margin-inline:auto;padding:24px}
+
+    /* ---------- Low-poly animated background ---------- */
+    .poly-bg{
+      position: fixed;
+      inset: -10% -10% -10% -10%;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .5;
+    }
+    .poly-bg polygon{
+      transform-origin: center;
+      animation: floaty 16s ease-in-out infinite;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,.25));
+    }
+    .poly-bg polygon:nth-child(odd){ animation-duration: 22s }
+    .poly-bg polygon:nth-child(3n){ animation-duration: 28s }
+    @keyframes floaty{
+      0%   { transform: translateY(0) }
+      50%  { transform: translateY(-18px) }
+      100% { transform: translateY(0) }
+    }
+
     header{
       position: sticky; top:0; z-index:50;
       backdrop-filter: blur(8px);
@@ -210,7 +102,13 @@
       padding-block: 12px;
     }
     .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px}
-    .brand .dot{width:10px;height:10px;border-radius:9999px;background:rgb(var(--accent));box-shadow:0 0 24px rgba(var(--accent),.8)}
+    .brand .logo {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--ring)));
+      color: #fff; display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:18px; margin-right:12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,.25);
+    }
     .nav a{color:rgb(var(--fg));opacity:.85;padding:8px 10px;border-radius:10px}
     .nav a:hover{opacity:1;background:rgba(var(--fg),.06);text-decoration:none}
     .btn{
@@ -218,7 +116,7 @@
       padding:10px 14px;border-radius:14px;
       background:linear-gradient(180deg, rgba(var(--accent),.95), rgba(var(--accent),.85));
       color:white;font-weight:600;border:none;cursor:pointer;
-      box-shadow: 0 6px 18px rgba(var(--accent), .3);
+      box-shadow: 0 6px 18px rgba(0,0,0, .3);
       transition: transform .08s ease;
     }
     .btn:active{transform:translateY(1px)}
@@ -226,19 +124,20 @@
       background: rgba(var(--fg), .08); color: rgb(var(--fg));
       box-shadow:none; border: 1px solid rgba(var(--fg), .14);
     }
+
     .hero{
       display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;
       padding-block:50px;
     }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+
     .card{
       background: color-mix(in oklab, rgb(var(--card)) 92%, transparent);
       border:1px solid rgba(var(--fg), .08);
       border-radius:24px; padding:24px;
-      box-shadow: 0 10px 30px rgba(var(--shadow),.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
+
     h1{font-size: clamp(28px, 4vw, 48px); line-height:1.1; margin:0}
     h2{font-size: clamp(22px, 2.6vw, 30px); margin: 4px 0 0 0}
     .muted{color: rgb(var(--muted))}
@@ -248,9 +147,7 @@
     .span-6{grid-column: span 6}
     .span-4{grid-column: span 4}
     .span-12{grid-column: span 12}
-    @media (max-width:900px){
-      .span-6,.span-4{grid-column: span 12}
-    }
+    @media (max-width:900px){ .span-6,.span-4{grid-column: span 12} }
     .item h3{margin:.2rem 0}
     .bullets{padding-left:1.1rem;margin:0}
     .bullets li{margin:.4rem 0}
@@ -263,161 +160,76 @@
     .filter{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 16px}
     .filter .toggle{padding:8px 12px;border-radius:9999px;border:1px solid rgba(var(--fg),.15);cursor:pointer;background:rgba(var(--fg),.05)}
     .filter .toggle.active{background: rgba(var(--accent), .16); border-color: rgba(var(--accent), .6); color: rgb(var(--accent));}
-    /* Enhanced project card interactions */
-    .project{
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-    .project:hover{
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(0,0,0,.3);
-    }
-    /* Sliding overlay for a subtle sheen on hover */
-    .project::before{
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(var(--accent), 0.08);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: transform .3s ease, opacity .3s ease;
-    }
-    .project:hover::before{
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+    /* Project hover sheen */
+    .project{ position: relative; overflow: hidden; cursor: pointer; transition: transform .3s ease, box-shadow .3s ease; }
+    .project:hover{ transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 35px rgba(0,0,0,.3); }
+    .project::before{ content: ''; position: absolute; inset: 0; background: rgba(var(--accent), 0.08); opacity: 0; transform: translateY(20px); transition: transform .3s ease, opacity .3s ease; }
+    .project:hover::before{ opacity: 1; transform: translateY(0); }
+
     .badge{font-size:12px;border:1px solid rgba(var(--fg),.15);border-radius:9999px;padding:4px 8px;color:rgb(var(--muted))}
     .theme-switch{border:1px solid rgba(var(--fg),.2); background:rgba(var(--fg),.06); padding:8px 10px; border-radius:9999px; cursor:pointer}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    /* Portrait styling */
-    .portrait{
-      width:100%;
-      border-radius:16px;
-      margin-bottom:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,.4);
-      object-fit:cover;
+
+    /* Portrait */
+    .portrait{ width:100%; border-radius:16px; margin-bottom:12px; box-shadow:0 4px 12px rgba(0,0,0,.4); object-fit:cover; }
+
+    /* --- Social icons row you requested --- */
+    #socials-container{
+      display:flex; gap:16px; align-items:center; margin-top:18px;
     }
-    /* Skills section styles */
+    .link-icon{
+      font-size: 28px; line-height: 1; cursor: pointer;
+      color: rgb(var(--fg));
+      background: rgba(var(--fg), .08);
+      border: 1px solid rgba(var(--fg), .14);
+      width: 42px; height: 42px; display:flex; align-items:center; justify-content:center;
+      border-radius: 10px;
+      transition: transform .15s ease, color .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+    .hover-icon:hover{
+      color: rgb(var(--accent));
+      background: rgba(var(--accent), .12);
+      box-shadow: 0 6px 16px rgba(0,0,0,.2);
+      transform: translateY(-2px);
+    }
+
+    /* About section */
+    .about-section { text-align: center; max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; }
+    .about-header { color: rgb(var(--fg)); margin-bottom: 0.5rem; font-weight: 600; font-size: 1.2rem; opacity: .9; }
+    .about-flex { display: flex; align-items: flex-start; gap: 2.5rem; margin-top: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .about-cartoon { width: 180px; min-width: 120px; max-width: 30vw; height: auto; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.12); object-fit: cover; }
+    .about-main { flex: 1; min-width: 260px; max-width: 700px; display: flex; flex-direction: column; gap: 1.2rem; align-items: flex-start; }
+    .about-text { text-align: left; font-size: 1.05rem; line-height: 1.8; color: rgb(var(--muted)); }
+
+    /* Details containers you asked to add (Experience / Education) */
+    .about-details-container{ width:100%; display:flex; justify-content:center; margin-top: 8px; }
+    .about-containers{ display:flex; gap:16px; flex-wrap:wrap; }
+    .details-container{
+      background: color-mix(in oklab, rgb(var(--card)) 92%, transparent);
+      border:1px solid rgba(var(--fg), .08);
+      border-radius:16px; padding:14px 18px; min-width: 220px;
+      text-align:center; box-shadow: 0 8px 20px rgba(0,0,0,.2);
+    }
+    .details-container h3{ margin: 8px 0 4px; }
+    .details-container p{ margin: 0; color: rgb(var(--muted)); }
+    .icon{ color: rgb(var(--accent)); }
+    .italic{ font-style: italic; }
+
+    /* Skills section bits from your file */
     .skill-grid{ display:flex; flex-direction:column; gap:1rem; }
     .skill-item{ background: rgba(var(--fg), .06); padding:0.8rem; border-radius:8px; }
     .skill-header{ display:flex; justify-content:space-between; margin-bottom:0.5rem; }
     .skill-bar{ height:8px; background: rgba(var(--fg),0.15); border-radius:4px; overflow:hidden; }
     .skill-progress{ height:100%; background: linear-gradient(90deg, rgb(var(--accent)) 0%, rgb(var(--ring)) 100%); border-radius:4px; transition: width 1s ease; }
-    .tech-grid{ display:flex; flex-direction:column; gap:1rem; }
-    .tech-category h4{ margin:0 0 0.4rem 0; font-size:16px; font-weight:600; color:rgb(var(--fg)); }
-    .tech-items{ display:flex; flex-wrap:wrap; gap:0.25rem; }
-    .tech-chip{ background: linear-gradient(135deg, rgb(var(--accent)) 0%, rgb(var(--ring)) 100%); color:#fff; padding:0.5rem 1rem; border-radius:20px; margin:0.25rem; display:inline-block; transition: transform 0.2s ease; font-size:14px; }
-    .tech-chip:hover{ transform: translateY(-2px); }
-    .cert-grid{ display:flex; flex-direction:column; gap:0.6rem; }
-    .cert-item{ display:flex; align-items:center; gap:0.6rem; font-size:14px; }
-    .cert-item i{ color: rgb(var(--accent)); }
-    .focus-grid{ display:flex; flex-wrap:wrap; gap:0.5rem; }
-    .focus-item{ display:flex; align-items:center; gap:0.5rem; padding:0.8rem; background: rgba(var(--fg), .06); border-radius:8px; transition: transform 0.2s ease; font-size:14px; }
-    .focus-item i{ color: rgb(var(--accent)); }
-    .focus-item:hover{ transform: translateX(5px); }
 
-    /* Portrait container for real photo and illustration side-by-side */
-    .portrait-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    @media (min-width: 700px) {
-      .portrait-container {
-        flex-direction: row;
-      }
-    }
-    /* Illustration styling mirrors the portrait card */
-    .illustration {
-    width: 180px;
-    max-width: 40vw;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,.4);
-    object-fit: cover;
-    }
-    /* Links underneath the hero portrait section */
-    .hero-links {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin-top: 12px;
-    }
-    .hero-links a {
-      /* Use accent colour for hero icons */
-      color: rgb(var(--accent));
-      font-size: 28px;
-      transition: transform .2s ease, color .2s ease;
-    }
-    .hero-links a:hover {
-      transform: translateY(-2px);
-      color: rgb(var(--ring));
-    }
-
-    /* Custom monogram and social icon styles */
-    .logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--ring)));
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 18px;
-      margin-right: 12px;
-      box-shadow: 0 4px 8px rgba(var(--accent), 0.4);
-    }
-    .social-links {
-      display:flex;
-      gap:16px;
-      align-items:center;
-    }
-    .social-links a {
-      /* Use accent color for icons so they stand out on dark and light themes */
-      color: rgb(var(--accent));
-      font-size: 24px;
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
-    .social-links a:hover {
-      transform: translateY(-2px);
-      /* Use ring accent on hover for a subtle contrast */
-      color: rgb(var(--ring));
-    }
-
-    /* Modern background and centered sections for Experience and Education */
-body {
-    background: #111;
-    background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%), 
-                      linear-gradient(-45deg, rgba(255,255,255,0.15) 25%, transparent 25%), 
-                      linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.15) 75%), 
-                      linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.15) 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-}
-
-#experience, #education {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 20px;
-}
-
-#experience .section-content, #education .section-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.section-image {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
-}
+    /* Social links in Contact */
+    .social-links { display:flex; gap:16px; align-items:center; }
+    .social-links a { color: rgb(var(--accent)); font-size: 24px; transition: transform 0.2s ease, color 0.2s ease; }
+    .social-links a:hover { transform: translateY(-2px); color: rgb(var(--ring)); }
   </style>
+
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -435,10 +247,29 @@ body {
   </script>
 </head>
 <body>
+  <!-- Low-poly animated background (kept lightweight & subtle) -->
+  <svg class="poly-bg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="rgb(var(--accent))" stop-opacity=".24"/>
+        <stop offset="100%" stop-color="rgb(var(--ring))" stop-opacity=".24"/>
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgb(var(--ring))" stop-opacity=".18"/>
+        <stop offset="100%" stop-color="rgb(var(--accent))" stop-opacity=".18"/>
+      </linearGradient>
+    </defs>
+    <polygon fill="url(#g1)" points="0,1000 0,500 400,800"/>
+    <polygon fill="url(#g2)" points="0,0 600,0 260,360"/>
+    <polygon fill="url(#g1)" points="1600,0 1000,0 1340,380"/>
+    <polygon fill="url(#g2)" points="1600,1000 1100,680 1600,420"/>
+    <polygon fill="url(#g1)" points="600,1000 1000,760 1200,1000"/>
+    <polygon fill="url(#g2)" points="420,120 900,340 540,520"/>
+  </svg>
+
   <header>
     <div class="container nav">
       <div class="brand">
-        <!-- Monogram logo with initials AK -->
         <span class="logo">AK</span>
         <span>Anish Ketha</span>
       </div>
@@ -455,129 +286,160 @@ body {
   </header>
 
   <main class="container">
+    <!-- HERO -->
     <section id="home" class="hero">
       <div class="card">
-        <h1>ML Engineer &amp; SWE building<span class="muted"> data‑driven systems</span> and <span class="muted">polished product experiences</span>.</h1>
-        <p class="muted">Purdue CS &amp; Finance (’26). Hackathon podiums at JPMorgan Chase (3rd) and Ignite WebAR &amp; AI (2nd). I design for clarity, ship with quality, and sweat the details.</p>
+        <h1>Hey, I'm <span style="font-weight:800">Anish Ketha</span></h1>
+        <h2 class="muted" style="margin-top:6px">ML Engineer &amp; Full-Stack Developer</h2>
+
+        <p class="muted" style="margin-top:8px">
+          Purdue CS &amp; Finance (’26). Hackathon podiums at JPMorgan Chase (3rd) and Ignite WebAR &amp; AI (2nd).
+          I design for clarity, ship with quality, and sweat the details.
+        </p>
+
         <div class="kpi" role="list" aria-label="Highlights">
           <div class="pill" role="listitem">JPMorgan Global Hackathon — 3rd</div>
-          <div class="pill" role="listitem">Ignite Pitch‑Off (WebAR &amp; AI) — 2nd</div>
+          <div class="pill" role="listitem">Ignite Pitch-Off (WebAR &amp; AI) — 2nd</div>
           <div class="pill" role="listitem">Dean’s List — College of Science</div>
         </div>
+
         <div style="display:flex;gap:12px;margin-top:18px">
           <a class="btn" href="Anish_Ketha_Resume_2026.pdf" download>⬇️ Download Resume</a>
-          <a class="btn secondary" href="mailto:kethaa0314@gmail.com">✉️ Email me</a>
+          <a class="btn secondary" href="mailto:kethaa0314@gmail.com">✉️ Contact</a>
         </div>
-      </div>
-      <div class="card">
-        <!-- Professional portrait for the hero section -->
-        
-          <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
-        <!-- Social links directly under the portrait -->
-        <div class="hero-links">
-          <a href="https://www.linkedin.com/in/anishketha" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/KingShmo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Download resume"><i class="fas fa-file-lines"></i></a>
+
+        <!-- Socials container (exact markup you requested) -->
+        <div id="socials-container" aria-label="Social links">
+          <i
+            class="fa-brands fa-linkedin link-icon hover-icon"
+            onclick="window.open('https://www.linkedin.com/in/anishketha', '_blank')"
+            title="LinkedIn"
+            aria-label="LinkedIn"
+          ></i>
+          <i
+            class="fa-brands fa-github link-icon hover-icon"
+            onclick="window.open('https://github.com/KingShmo', '_blank')"
+            title="GitHub"
+            aria-label="GitHub"
+          ></i>
         </div>
+
+        <div class="divider" style="margin-top:18px"></div>
         <h2 style="margin-top:12px">Now</h2>
         <ul class="bullets">
           <li>Engineering ETL pipelines in <strong>Alteryx + Python</strong> that eliminated <strong>4 hours/day</strong> of manual processing and accelerated reporting.</li>
-          <li>Prototyping <strong>WayFindAR</strong>: AR indoor navigation with <strong>LLM‑guided</strong> route intelligence and Blender‑made scenes.</li>
+          <li>Prototyping <strong>WayFindAR</strong>: AR indoor navigation with <strong>LLM-guided</strong> route intelligence and Blender-made scenes.</li>
           <li>Shipping usable UI with React/TypeScript and clean, testable backend endpoints in Java/Spring.</li>
         </ul>
-        <div class="divider"></div>
         <div class="stack" style="margin-top:12px">
           <span class="chip">Python</span><span class="chip">Java</span><span class="chip">TypeScript</span>
           <span class="chip">React</span><span class="chip">Spring Boot</span><span class="chip">YOLOv8</span>
           <span class="chip">EasyOCR</span><span class="chip">AWS Amplify</span><span class="chip">Neo4j</span>
         </div>
       </div>
+
+      <div class="card">
+        <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
+        <!-- You can keep or remove these; left the row for quick access -->
+        <div class="stack" style="margin-top:8px">
+          <a href="https://www.linkedin.com/in/anishketha" target="_blank" aria-label="LinkedIn" class="badge">LinkedIn</a>
+          <a href="https://github.com/KingShmo" target="_blank" aria-label="GitHub" class="badge">GitHub</a>
+          <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Download resume" class="badge">Resume</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Modern About Me section with transitions and stat cards -->
-<section id="about" class="about-section">
-  <div class="about-header">Get to Know More</div>
-  <h2>About Me</h2>
-  <div class="about-flex">
-    <img src="coding_cartoon.png" alt="Coding cartoon" class="about-cartoon" />
-    <div class="about-main">
-      <div class="about-stats">
-        <div class="about-card">
-          <div class="about-icon"><i class="fas fa-briefcase"></i></div>
-          <div class="about-title">Experience</div>
-          <div class="about-desc">3+ Internships<br>ML, SWE, Quant</div>
-        </div>
-        <div class="about-card">
-          <div class="about-icon"><i class="fas fa-graduation-cap"></i></div>
-          <div class="about-title">Education</div>
-          <div class="about-desc">Purdue University<br>CS & Finance</div>
-        </div>
-      </div>
-      <div class="about-text">
-        <p>Hello! I'm a senior at Purdue University majoring in Computer Science and Finance. Over the past few years I've completed internships and projects across machine learning, fintech and software engineering, honing skills in ETL automation, AR navigation and full‑stack development.</p>
-        <p>I'm currently seeking co‑op, internship and full‑time opportunities in machine learning engineering, software engineering and quantitative research. I thrive on building polished, data‑driven systems and enjoy combining analytical rigor with creative design.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+      <div class="about-header">Get to Know More</div>
+      <h2>About Me</h2>
+      <div class="about-flex">
+        <img src="coding_cartoon.png" alt="Coding cartoon" class="about-cartoon" />
+        <div class="about-main">
+          <div class="about-details-container">
+            <div class="about-containers">
+              <!-- Experience icon box -->
+              <div class="details-container">
+                <i class="fa-solid fa-briefcase icon" style="font-size:28px"></i>
+                <h3>Experience</h3>
+                <p><span class="italic">3+ Internships<br/>ML, SWE, Quant</span></p>
+              </div>
+              <!-- Education icon box -->
+              <div class="details-container">
+                <i class="fa-solid fa-graduation-cap icon" style="font-size:28px"></i>
+                <h3>Education</h3>
+                <p><span class="italic">Purdue University<br/>CS &amp; Finance</span></p>
+              </div>
+            </div>
+          </div>
 
+          <div class="about-text">
+            <p>Hello! I'm a senior at Purdue University majoring in Computer Science and Finance. Over the past few years I've completed internships and projects across machine learning, fintech and software engineering, honing skills in ETL automation, AR navigation and full-stack development.</p>
+            <p>I'm currently seeking co-op, internship and full-time opportunities in machine learning engineering, software engineering and quantitative research. I thrive on building polished, data-driven systems and enjoy combining analytical rigor with creative design.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
     <section id="experience">
-      <div class="section-content">
-        <img class="section-image" src="experience-placeholder.jpg" alt="Experience">
-        <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
-        <div class="grid">
-          <article class="card item span-6">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <h3>JPMorgan Chase — Global Finance &amp; Business Mgmt</h3>
-              <span class="badge">Summer 2025 • Newark, DE</span>
-            </div>
-            <p class="muted"><em>Corporate Summer Analyst</em></p>
-            <ul class="bullets">
-              <li>Built end‑to‑end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity for stakeholders.</li>
-              <li>Worked in <strong>agile</strong> cadence (stand‑ups, sprint planning) to hit MVP checkpoints.</li>
-              <li>Co‑created <strong>Chase Wrapped</strong> (Java/Spring/React) turning complex financials into interactive narratives — <strong>3rd place</strong> at firmwide hackathon.</li>
-            </ul>
-          </article>
-          <article class="card item span-6">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <h3>Ascendion</h3>
-              <span class="badge">Summer 2023 • Basking Ridge, NJ</span>
-            </div>
-            <p class="muted"><em>Machine Learning Engineer</em></p>
-            <ul class="bullets">
-              <li>Preprocessed/validated datasets driving simulation systems for a <strong>Divestiture Portfolio</strong> (C#, React, Bootstrap).</li>
-              <li>Modeled asset dependencies with <strong>Neo4j</strong> network graphs to deepen scenario analysis.</li>
-              <li>Built an <strong>NLP healthcare chatbot</strong> to suggest likely conditions and potential treatments.</li>
-            </ul>
-          </article>
-          <article class="card item span-6">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <h3>Liberty Coca‑Cola</h3>
-              <span class="badge">Summer 2022 • Brooklyn, NY</span>
-            </div>
-            <p class="muted"><em>Asset Auditor</em></p>
-            <ul class="bullets">
-              <li>Audited equipment across Staten Island &amp; Brooklyn; produced trend reports in Excel &amp; PowerPoint.</li>
-              <li>Identified target locations to optimize customer retention and daily route efficiency.</li>
-            </ul>
-          </article>
-        </div>
+      <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
+      <div class="grid">
+        <article class="card item span-6">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3>JPMorgan Chase — Global Finance &amp; Business Mgmt</h3>
+            <span class="badge">Summer 2025 • Newark, DE</span>
+          </div>
+          <p class="muted"><em>Corporate Summer Analyst</em></p>
+          <ul class="bullets">
+            <li>Built end-to-end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity for stakeholders.</li>
+            <li>Worked in <strong>agile</strong> cadence (stand-ups, sprint planning) to hit MVP checkpoints.</li>
+            <li>Co-created <strong>Chase Wrapped</strong> (Java/Spring/React) turning complex financials into interactive narratives — <strong>3rd place</strong> at firmwide hackathon.</li>
+          </ul>
+        </article>
+
+        <article class="card item span-6">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3>Ascendion</h3>
+            <span class="badge">Summer 2023 • Basking Ridge, NJ</span>
+          </div>
+          <p class="muted"><em>Machine Learning Engineer</em></p>
+          <ul class="bullets">
+            <li>Preprocessed/validated datasets driving simulation systems for a <strong>Divestiture Portfolio</strong> (C#, React, Bootstrap).</li>
+            <li>Modeled asset dependencies with <strong>Neo4j</strong> network graphs to deepen scenario analysis.</li>
+            <li>Built an <strong>NLP healthcare chatbot</strong> to suggest likely conditions and potential treatments.</li>
+          </ul>
+        </article>
+
+        <article class="card item span-6">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3>Liberty Coca-Cola</h3>
+            <span class="badge">Summer 2022 • Brooklyn, NY</span>
+          </div>
+          <p class="muted"><em>Asset Auditor</em></p>
+          <ul class="bullets">
+            <li>Audited equipment across Staten Island &amp; Brooklyn; produced trend reports in Excel &amp; PowerPoint.</li>
+            <li>Identified target locations to optimize customer retention and daily route efficiency.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects">
       <div class="section-title"><h2><i class="fas fa-code"></i> Projects</h2></div>
       <div class="filter" aria-label="Project filters">
         <button class="toggle active" data-tag="all">All</button>
         <button class="toggle" data-tag="ml">ML/AI</button>
-        <button class="toggle" data-tag="fullstack">Full‑stack</button>
+        <button class="toggle" data-tag="fullstack">Full-stack</button>
         <button class="toggle" data-tag="ar">AR/3D</button>
         <button class="toggle" data-tag="quant">Finance/Quant</button>
       </div>
+
       <div class="grid" id="project-grid">
         <article class="card item project span-6" data-tags="ar fullstack">
           <h3>WayFindAR</h3>
-          <p class="muted">Web/mobile indoor navigation overlaying <strong>3D directions</strong> on camera feeds (TypeScript, Three.js, Java). <strong>LLM‑guided</strong> route tips and Blender scenes. <strong>Ignite Pitch‑Off — 2nd</strong>.</p>
+          <p class="muted">Web/mobile indoor navigation overlaying <strong>3D directions</strong> on camera feeds (TypeScript, Three.js, Java). <strong>LLM-guided</strong> route tips and Blender scenes. <strong>Ignite Pitch-Off — 2nd</strong>.</p>
           <div class="stack">
             <span class="chip">TypeScript</span><span class="chip">Three.js</span><span class="chip">Java</span><span class="chip">LLMs</span><span class="chip">Blender</span>
           </div>
@@ -586,6 +448,7 @@ body {
             <a class="badge" href="https://youtu.be/5oLOx7MUNLE" target="_blank" rel="noopener">Pitch video</a>
           </div>
         </article>
+
         <article class="card item project span-6" data-tags="fullstack ml">
           <h3>Chase Wrapped</h3>
           <p class="muted">Interactive narratives for financial summaries using <strong>Java, Spring Boot, React</strong>. <strong>3rd place</strong> at JPMorgan Global Hackathon.</p>
@@ -596,6 +459,7 @@ body {
             <a class="badge" href="https://youtu.be/_kFUI5TX-qA" target="_blank" rel="noopener">Demo</a>
           </div>
         </article>
+
         <article class="card item project span-6" data-tags="ml">
           <h3>Automated ERD Grade Prediction</h3>
           <p class="muted">Dataset creation in Roboflow; trained <strong>YOLOv8</strong> to detect ERD components; <strong>EasyOCR</strong> to extract text; automated grading predictions.</p>
@@ -603,22 +467,25 @@ body {
             <span class="chip">YOLOv8</span><span class="chip">Python</span><span class="chip">EasyOCR</span><span class="chip">Roboflow</span>
           </div>
         </article>
+
         <article class="card item project span-6" data-tags="quant">
-          <h3>Factor‑Based Stock‑Picking</h3>
+          <h3>Factor-Based Stock-Picking</h3>
           <p class="muted">Ranked U.S. equities by Momentum, Value, Quality, Defensive; backtested deciles; visualized return spreads and growth of $1.</p>
           <div class="stack">
             <span class="chip">R</span><span class="chip">Quarto</span>
             <a class="badge" href="https://github.com/KingShmo/Financial-Modeling-in-R-/blob/main/Anish%20Ketha%20-%20Project%203%20-%20Create%20a%20Stock-Picking%20Strategy.pdf" target="_blank" rel="noopener">Paper</a>
           </div>
         </article>
+
         <article class="card item project span-6" data-tags="quant">
-          <h3>Dual‑Analysis Market‑Timing</h3>
-          <p class="muted">Signals from P/D ratio + 21‑day SMA; sorted into deciles; graphed quarterly spreads and returns.</p>
+          <h3>Dual-Analysis Market-Timing</h3>
+          <p class="muted">Signals from P/D ratio + 21-day SMA; sorted into deciles; graphed quarterly spreads and returns.</p>
           <div class="stack">
             <span class="chip">R</span><span class="chip">Quarto</span>
             <a class="badge" href="https://github.com/KingShmo/Financial-Modeling-in-R-/blob/main/Anish%20Ketha%20-%20Project%202_%20Create%20a%20Market-Timing%20Strategy.pdf" target="_blank" rel="noopener">Paper</a>
           </div>
         </article>
+
         <article class="card item project span-6" data-tags="ml">
           <h3>Credit Card Fraud Detection</h3>
           <p class="muted">Feature engineering on time intervals &amp; spending patterns; trained Naive Bayes &amp; Random Forest with CV to classify fraud.</p>
@@ -627,9 +494,10 @@ body {
             <a class="badge" href="https://github.com/KingShmo/Credit-Card-Fraud-Classification-Model-/blob/main/Credit%20Card%20Fraud%20Classification%20Model.pdf" target="_blank" rel="noopener">Writeup</a>
           </div>
         </article>
+
         <article class="card item project span-6" data-tags="fullstack">
           <h3>Learning Management System</h3>
-          <p class="muted">Multi‑user Java LMS with real‑time sync and JUnit tests; enabled teachers to create courses, assignments, and grading.</p>
+          <p class="muted">Multi-user Java LMS with real-time sync and JUnit tests; enabled teachers to create courses, assignments, and grading.</p>
           <div class="stack">
             <span class="chip">Java</span><span class="chip">JUnit</span>
             <a class="badge" href="https://github.com/KingShmo/Project-4-/tree/Perfect" target="_blank" rel="noopener">Repo</a>
@@ -638,119 +506,79 @@ body {
       </div>
     </section>
 
+    <!-- SKILLS (unchanged from your file) -->
     <section id="skills">
       <div class="section-title"><h2><i class="fas fa-lightbulb"></i> Skills</h2></div>
       <div class="grid">
         <div class="card span-6">
           <h3>Core Languages</h3>
           <div class="skill-grid">
-            <!-- Example language bars; feel free to adjust percentages -->
             <div class="skill-item">
-              <div class="skill-header">
-                <span>Python</span>
-                <span>95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 95%"></div>
-              </div>
+              <div class="skill-header"><span>Python</span><span>95%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div>
             </div>
             <div class="skill-item">
-              <div class="skill-header">
-                <span>Java</span>
-                <span>90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
+              <div class="skill-header"><span>Java</span><span>90%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
             </div>
             <div class="skill-item">
-              <div class="skill-header">
-                <span>TypeScript</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
+              <div class="skill-header"><span>TypeScript</span><span>85%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
             </div>
             <div class="skill-item">
-              <div class="skill-header">
-                <span>C/C++</span>
-                <span>75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 75%"></div>
-              </div>
+              <div class="skill-header"><span>C/C++</span><span>75%</span></div>
+              <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
             </div>
           </div>
         </div>
+
         <div class="card span-6">
           <h3>Technologies &amp; Frameworks</h3>
           <div class="tech-grid">
             <div class="tech-category">
               <h4>ML/AI</h4>
               <div class="tech-items">
-                <span class="tech-chip">TensorFlow</span>
-                <span class="tech-chip">Keras</span>
-                <span class="tech-chip">YOLOv8</span>
-                <span class="tech-chip">EasyOCR</span>
+                <span class="chip">TensorFlow</span>
+                <span class="chip">Keras</span>
+                <span class="chip">YOLOv8</span>
+                <span class="chip">EasyOCR</span>
               </div>
             </div>
             <div class="tech-category">
               <h4>Web Development</h4>
               <div class="tech-items">
-                <span class="tech-chip">React</span>
-                <span class="tech-chip">Spring Boot</span>
-                <span class="tech-chip">Flask</span>
-                <span class="tech-chip">Node.js</span>
+                <span class="chip">React</span>
+                <span class="chip">Spring Boot</span>
+                <span class="chip">Flask</span>
+                <span class="chip">Node.js</span>
               </div>
             </div>
           </div>
         </div>
+
         <div class="card span-6">
           <h3>Certifications &amp; Achievements</h3>
           <div class="cert-grid">
-            <div class="cert-item">
-              <i class="fas fa-certificate"></i>
-              <span>Alteryx Designer Core</span>
-            </div>
-            <div class="cert-item">
-              <i class="fas fa-award"></i>
-              <span>Bloomberg Market Concepts (BMC)</span>
-            </div>
-            <div class="cert-item">
-              <i class="fas fa-medal"></i>
-              <span>JPMorgan Global Hackathon – 3rd Place</span>
-            </div>
-            <div class="cert-item">
-              <i class="fas fa-medal"></i>
-              <span>Ignite WebAR &amp; AI Pitch‑Off – 2nd Place</span>
-            </div>
+            <div class="cert-item"><i class="fas fa-certificate"></i><span>Alteryx Designer Core</span></div>
+            <div class="cert-item"><i class="fas fa-award"></i><span>Bloomberg Market Concepts (BMC)</span></div>
+            <div class="cert-item"><i class="fas fa-medal"></i><span>JPMorgan Global Hackathon – 3rd Place</span></div>
+            <div class="cert-item"><i class="fas fa-medal"></i><span>Ignite WebAR &amp; AI Pitch-Off – 2nd Place</span></div>
           </div>
         </div>
+
         <div class="card span-6">
           <h3>Areas of Focus</h3>
           <div class="focus-grid">
-            <div class="focus-item">
-              <i class="fas fa-chart-line"></i>
-              <span>FinTech</span>
-            </div>
-            <div class="focus-item">
-              <i class="fas fa-robot"></i>
-              <span>Automation</span>
-            </div>
-            <div class="focus-item">
-              <i class="fas fa-vr-cardboard"></i>
-              <span>AR/3D</span>
-            </div>
-            <div class="focus-item">
-              <i class="fas fa-brain"></i>
-              <span>Quant Research</span>
-            </div>
+            <div class="focus-item"><i class="fas fa-chart-line"></i><span>FinTech</span></div>
+            <div class="focus-item"><i class="fas fa-robot"></i><span>Automation</span></div>
+            <div class="focus-item"><i class="fas fa-vr-cardboard"></i><span>AR/3D</span></div>
+            <div class="focus-item"><i class="fas fa-brain"></i><span>Quant Research</span></div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="section-title"><h2><i class="fas fa-envelope"></i> Contact</h2></div>
       <div class="card">
@@ -758,34 +586,30 @@ body {
           <div class="span-6">
             <p><strong>Based in:</strong> New York</p>
             <p><strong>Email:</strong> <a href="mailto:kethaa0314@gmail.com">kethaa0314@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+17327725810">+1 (732) 772‑5810</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+17327725810">+1 (732) 772-5810</a></p>
           </div>
           <div class="span-6">
             <p><strong>Links:</strong></p>
-            <!-- Social media icons replacing plain text links -->
             <div class="social-links">
-              <a href="https://www.linkedin.com/in/anishketha" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://github.com/KingShmo" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Resume">
-                <i class="fas fa-file-lines"></i>
-              </a>
+              <a href="https://www.linkedin.com/in/anishketha" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/KingShmo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Resume"><i class="fas fa-file-lines"></i></a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <footer class="container footer">
       <div class="divider"></div>
       <p>© <span id="y"></span> Anish Ketha — Crafted with semantic HTML, accessible UI, and zero frameworks.</p>
     </footer>
   </main>
+
   <script>
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
+
     // Theme toggle (persisted)
     const html = document.documentElement;
     const btn = document.getElementById('theme');
@@ -797,6 +621,7 @@ body {
       btn.setAttribute('aria-pressed', light);
       localStorage.setItem('theme', light ? 'light' : '');
     });
+
     // Project filter
     const toggles = document.querySelectorAll('.toggle');
     const cards = document.querySelectorAll('.project');
@@ -805,10 +630,11 @@ body {
       t.classList.add('active');
       const tag = t.dataset.tag;
       cards.forEach(c => {
-        const tags = c.dataset.tags.split(' ');
+        const tags = c.dataset.tags?.split(' ') ?? [];
         c.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
       });
     }));
+
     // Animate skill progress bars on scroll into view
     const progressBars = document.querySelectorAll('.skill-progress');
     progressBars.forEach(bar => {
