@@ -28,8 +28,8 @@
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230ea5e9'/%3E%3Ctext x='50' y='60' font-size='56' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EA%3C/text%3E%3C/svg%3E">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-X6eBzpihWkYw1AzRB4sJKYrOuwOhmgJcR7fjyGjb7rm7mhXoA66y0bFqt0plIyv8FqaXXeST1f6EBhmri96qKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome (no SRI so it always loads) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Analytics -->
   <script defer data-domain="KingShmo.github.io" src="https://plausible.io/js/script.js"></script>
@@ -143,6 +143,24 @@
     .details-container h3{margin:8px 0 4px}.details-container p{margin:0;color:rgb(var(--muted))}
     .icon{color:rgb(var(--accent))}.italic{font-style:italic}
 
+    /* Projects */
+    .filter{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 16px}
+    .toggle{padding:8px 12px;border-radius:9999px;border:1px solid rgba(255,255,255,.15);cursor:pointer;background:rgba(255,255,255,.06);color:rgb(var(--fg));font-weight:600}
+    .toggle.active{background: rgba(14,165,233,.16); border-color: rgba(14,165,233,.6); color: rgb(var(--accent));}
+    .project{
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(1200px 600px at -20% -20%, rgba(14,165,233,.08), transparent 60%),
+        radial-gradient(1000px 600px at 120% 120%, rgba(59,130,246,.08), transparent 60%),
+        color-mix(in oklab, rgb(var(--card)) 92%, transparent);
+    }
+    .project:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+    .project h3{margin:.2rem 0}
+    .badge{font-size:13px;border:1px solid rgba(255,255,255,.15);border-radius:9999px;padding:4px 8px;color:rgb(var(--accent))}
+
     /* Skills bars */
     .skill-grid{display:flex;flex-direction:column;gap:1rem}
     .skill-item{background:rgba(255,255,255,.06);padding:.8rem;border-radius:8px}
@@ -242,19 +260,16 @@
       <div class="card">
         <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
 
-        <!-- ICONS directly under the portrait (LinkedIn square, GitHub circle, Resume doc) -->
-        <div class="icon-row" aria-label="Profile links">
-          <!-- LinkedIn: square look -->
+        <!-- ICONS directly under the portrait -->
+        <div class="icon-row" aria-label="Profile links" id="socials-container">
           <button class="icon-btn" title="LinkedIn" aria-label="LinkedIn"
                   onclick="window.open('https://www.linkedin.com/in/anishketha', '_blank')">
             <i class="fa-brands fa-linkedin"></i>
           </button>
-          <!-- GitHub: circle look -->
           <button class="icon-btn circle" title="GitHub" aria-label="GitHub"
                   onclick="window.open('https://github.com/KingShmo', '_blank')">
             <i class="fa-brands fa-github"></i>
           </button>
-          <!-- Resume: document icon -->
           <button class="icon-btn resume" title="Résumé (PDF)" aria-label="Résumé"
                   onclick="window.open('Anish_Ketha_Resume_2026.pdf', '_blank')">
             <i class="fa-solid fa-file-lines"></i>
@@ -292,7 +307,7 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE (same content as before) -->
+    <!-- EXPERIENCE -->
     <section id="experience">
       <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
       <div class="grid">
@@ -417,29 +432,17 @@
       </div>
     </section>
 
-    <!-- SKILLS (unchanged from your file) -->
+    <!-- SKILLS -->
     <section id="skills">
       <div class="section-title"><h2><i class="fas fa-lightbulb"></i> Skills</h2></div>
       <div class="grid">
         <div class="card span-6">
           <h3>Core Languages</h3>
           <div class="skill-grid">
-            <div class="skill-item">
-              <div class="skill-header"><span>Python</span><span>95%</span></div>
-              <div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>Java</span><span>90%</span></div>
-              <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>TypeScript</span><span>85%</span></div>
-              <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header"><span>C/C++</span><span>75%</span></div>
-              <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
-            </div>
+            <div class="skill-item"><div class="skill-header"><span>Python</span><span>95%</span></div><div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>Java</span><span>90%</span></div><div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>TypeScript</span><span>85%</span></div><div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>C/C++</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div></div>
           </div>
         </div>
 
@@ -470,24 +473,26 @@
         <div class="card span-6">
           <h3>Certifications &amp; Achievements</h3>
           <div class="cert-grid">
-            <div class="cert-item"><i class="fas fa-certificate"></i><span>Alteryx Designer Core</span></div>
-            <div class="cert-item"><i class="fas fa-award"></i><span>Bloomberg Market Concepts (BMC)</span></div>
-            <div class="cert-item"><i class="fas fa-medal"></i><span>JPMorgan Global Hackathon – 3rd Place</span></div>
-            <div class="cert-item"><i class="fas fa-medal"></i><span>Ignite WebAR &amp; AI Pitch-Off – 2nd Place</span></div>
+            <div class="cert-item"><i class="fas fa-certificate"></i> <span>Alteryx Designer Core</span></div>
+            <div class="cert-item"><i class="fas fa-award"></i> <span>Bloomberg Market Concepts (BMC)</span></div>
+            <div class="cert-item"><i class="fas fa-medal"></i> <span>JPMorgan Global Hackathon – 3rd Place</span></div>
+            <div class="cert-item"><i class="fas fa-medal"></i> <span>Ignite WebAR &amp; AI Pitch-Off – 2nd Place</span></div>
           </div>
         </div>
 
         <div class="card span-6">
           <h3>Areas of Focus</h3>
           <div class="focus-grid">
-            <div class="focus-item"><i class="fas fa-chart-line"></i><span>FinTech</span></div>
-            <div class="focus-item"><i class="fas fa-robot"></i><span>Automation</span></div>
-            <div class="focus-item"><i class="fas fa-vr-cardboard"></i><span>AR/3D</span></div>
-            <div class="focus-item"><i class="fas fa-brain"></i><span>Quant Research</span></div>
+            <div class="focus-item"><i class="fas fa-chart-line"></i> <span>FinTech</span></div>
+            <div class="focus-item"><i class="fas fa-robot"></i> <span>Automation</span></div>
+            <div class="focus-item"><i class="fas fa-vr-cardboard"></i> <span>AR/3D</span></div>
+            <div class="focus-item"><i class="fas fa-brain"></i> <span>Quant Research</span></div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- CONTACT -->
     <section id="contact" class="span-12">
       <div class="section-title"><h2><i class="fas fa-envelope"></i> Contact</h2></div>
       <div class="card">
@@ -520,7 +525,8 @@
 
     <footer class="container footer">
       <div class="divider"></div>
-      <p>© <span id="y"></span> Anish Ketha 
+      <p>© <span id="y"></span> Anish Ketha — Crafted with semantic HTML, accessible UI, and zero frameworks.</p>
+    </footer>
   </main>
 
   <script>
@@ -548,20 +554,33 @@
       obs.observe(bar);
     });
 
-    // Project card fade-in (if you keep Projects section)
-    const projectObserver = new IntersectionObserver(entries => {
+    // Projects filter logic
+    const toggles = document.querySelectorAll('.toggle');
+    const projects = document.querySelectorAll('#project-grid .project');
+    toggles.forEach(t => t.addEventListener('click', () => {
+      toggles.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const tag = t.dataset.tag;
+      projects.forEach(p => {
+        const tags = p.dataset.tags.split(' ');
+        p.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
+      });
+    }));
+
+    // Pretty fade-in for projects
+    const projObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
-          projectObserver.unobserve(entry.target);
+          projObs.unobserve(entry.target);
         }
       });
-    }, { threshold: .3 });
+    }, { threshold: .25 });
     document.querySelectorAll('.project').forEach(card => {
       card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      projectObserver.observe(card);
+      card.style.transform = 'translateY(14px)';
+      projObs.observe(card);
     });
   </script>
 </body>
