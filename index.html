@@ -34,6 +34,139 @@
   <script defer data-domain="KingShmo.github.io" src="https://plausible.io/js/script.js"></script>
 
   <style>
+    .about-section {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.about-header {
+  color: rgb(var(--fg));
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards 0.1s;
+}
+.about-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards 0.2s;
+}
+.about-cartoon {
+  width: 180px;
+  min-width: 120px;
+  max-width: 30vw;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  object-fit: cover;
+  margin-bottom: 18px;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
+}
+.about-cartoon:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(14,165,233,0.18);
+}
+.about-main {
+  flex: 1;
+  min-width: 260px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.about-stats {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-start;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+.about-card {
+  background: #fff;
+  color: #222;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 1.2rem 2.2rem;
+  min-width: 180px;
+  transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s ease forwards 0.3s;
+}
+.about-card:hover {
+  box-shadow: 0 8px 32px rgba(14,165,233,0.13);
+  transform: translateY(-6px) scale(1.03);
+}
+.about-icon {
+  font-size: 2.2rem;
+  color: rgb(var(--accent));
+  margin-bottom: 0.5rem;
+}
+.about-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+.about-desc {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.2rem;
+}
+.about-text {
+  text-align: left;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgb(var(--muted));
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s ease forwards 0.4s;
+}
+@media (max-width: 900px) {
+  .about-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-main {
+    align-items: center;
+  }
+  .about-text {
+    text-align: center;
+  }
+  .about-stats {
+    justify-content: center;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     :root{
       --bg:  12 12 16;
       --fg:  245 245 250;
@@ -331,20 +464,32 @@
       </div>
     </section>
 
-    <!-- About Me section with a personal illustration and bio -->
-    <section id="about">
-      <div class="section-title"><h2><i class="fas fa-user"></i> About Me</h2></div>
-      <div class="card">
-        <div class="portrait-container">
-          <img src="coding_cartoon.png" alt="Illustrated depiction of Anish Ketha coding" class="illustration" />
-    <!-- Cartoon illustration size reduced for better text readability -->
-          <div>
-            <p>Hello! I'm a senior at Purdue University majoring in Computer Science and Finance. Over the past few years I've completed internships and projects across machine learning, fintech and software engineering, honing skills in ETL automation, AR navigation and full‑stack development.</p>
-            <p>I’m currently seeking co‑op, internship and full‑time opportunities in machine learning engineering, software engineering and quantitative research. I thrive on building polished, data‑driven systems and enjoy combining analytical rigor with creative design.</p>
-          </div>
+    <!-- Modern About Me section with transitions and stat cards -->
+<section id="about" class="about-section">
+  <div class="about-header">Get to Know More</div>
+  <h2>About Me</h2>
+  <div class="about-flex">
+    <img src="coding_cartoon.png" alt="Coding cartoon" class="about-cartoon" />
+    <div class="about-main">
+      <div class="about-stats">
+        <div class="about-card">
+          <div class="about-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="about-title">Experience</div>
+          <div class="about-desc">3+ Internships<br>ML, SWE, Quant</div>
+        </div>
+        <div class="about-card">
+          <div class="about-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="about-title">Education</div>
+          <div class="about-desc">Purdue University<br>CS & Finance</div>
         </div>
       </div>
-    </section>
+      <div class="about-text">
+        <p>Hello! I'm a senior at Purdue University majoring in Computer Science and Finance. Over the past few years I've completed internships and projects across machine learning, fintech and software engineering, honing skills in ETL automation, AR navigation and full‑stack development.</p>
+        <p>I'm currently seeking co‑op, internship and full‑time opportunities in machine learning engineering, software engineering and quantitative research. I thrive on building polished, data‑driven systems and enjoy combining analytical rigor with creative design.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section id="experience">
       <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
@@ -662,4 +807,4 @@
     });
   </script>
 </body>
-</html>
+</html>0
