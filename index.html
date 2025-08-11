@@ -387,6 +387,36 @@
       /* Use ring accent on hover for a subtle contrast */
       color: rgb(var(--ring));
     }
+
+    /* Modern background and centered sections for Experience and Education */
+body {
+    background: #111;
+    background-image: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%), 
+                      linear-gradient(-45deg, rgba(255,255,255,0.15) 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.15) 75%), 
+                      linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.15) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+#experience, #education {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+#experience .section-content, #education .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-image {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
   </style>
   <script type="application/ld+json">
   {
@@ -492,43 +522,46 @@
 </section>
 
     <section id="experience">
-      <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
-      <div class="grid">
-        <article class="card item span-6">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>JPMorgan Chase — Global Finance &amp; Business Mgmt</h3>
-            <span class="badge">Summer 2025 • Newark, DE</span>
-          </div>
-          <p class="muted"><em>Corporate Summer Analyst</em></p>
-          <ul class="bullets">
-            <li>Built end‑to‑end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity for stakeholders.</li>
-            <li>Worked in <strong>agile</strong> cadence (stand‑ups, sprint planning) to hit MVP checkpoints.</li>
-            <li>Co‑created <strong>Chase Wrapped</strong> (Java/Spring/React) turning complex financials into interactive narratives — <strong>3rd place</strong> at firmwide hackathon.</li>
-          </ul>
-        </article>
-        <article class="card item span-6">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>Ascendion</h3>
-            <span class="badge">Summer 2023 • Basking Ridge, NJ</span>
-          </div>
-          <p class="muted"><em>Machine Learning Engineer</em></p>
-          <ul class="bullets">
-            <li>Preprocessed/validated datasets driving simulation systems for a <strong>Divestiture Portfolio</strong> (C#, React, Bootstrap).</li>
-            <li>Modeled asset dependencies with <strong>Neo4j</strong> network graphs to deepen scenario analysis.</li>
-            <li>Built an <strong>NLP healthcare chatbot</strong> to suggest likely conditions and potential treatments.</li>
-          </ul>
-        </article>
-        <article class="card item span-6">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3>Liberty Coca‑Cola</h3>
-            <span class="badge">Summer 2022 • Brooklyn, NY</span>
-          </div>
-          <p class="muted"><em>Asset Auditor</em></p>
-          <ul class="bullets">
-            <li>Audited equipment across Staten Island &amp; Brooklyn; produced trend reports in Excel &amp; PowerPoint.</li>
-            <li>Identified target locations to optimize customer retention and daily route efficiency.</li>
-          </ul>
-        </article>
+      <div class="section-content">
+        <img class="section-image" src="experience-placeholder.jpg" alt="Experience">
+        <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
+        <div class="grid">
+          <article class="card item span-6">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>JPMorgan Chase — Global Finance &amp; Business Mgmt</h3>
+              <span class="badge">Summer 2025 • Newark, DE</span>
+            </div>
+            <p class="muted"><em>Corporate Summer Analyst</em></p>
+            <ul class="bullets">
+              <li>Built end‑to‑end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity for stakeholders.</li>
+              <li>Worked in <strong>agile</strong> cadence (stand‑ups, sprint planning) to hit MVP checkpoints.</li>
+              <li>Co‑created <strong>Chase Wrapped</strong> (Java/Spring/React) turning complex financials into interactive narratives — <strong>3rd place</strong> at firmwide hackathon.</li>
+            </ul>
+          </article>
+          <article class="card item span-6">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>Ascendion</h3>
+              <span class="badge">Summer 2023 • Basking Ridge, NJ</span>
+            </div>
+            <p class="muted"><em>Machine Learning Engineer</em></p>
+            <ul class="bullets">
+              <li>Preprocessed/validated datasets driving simulation systems for a <strong>Divestiture Portfolio</strong> (C#, React, Bootstrap).</li>
+              <li>Modeled asset dependencies with <strong>Neo4j</strong> network graphs to deepen scenario analysis.</li>
+              <li>Built an <strong>NLP healthcare chatbot</strong> to suggest likely conditions and potential treatments.</li>
+            </ul>
+          </article>
+          <article class="card item span-6">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3>Liberty Coca‑Cola</h3>
+              <span class="badge">Summer 2022 • Brooklyn, NY</span>
+            </div>
+            <p class="muted"><em>Asset Auditor</em></p>
+            <ul class="bullets">
+              <li>Audited equipment across Staten Island &amp; Brooklyn; produced trend reports in Excel &amp; PowerPoint.</li>
+              <li>Identified target locations to optimize customer retention and daily route efficiency.</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -807,4 +840,4 @@
     });
   </script>
 </body>
-</html>0
+</html>
