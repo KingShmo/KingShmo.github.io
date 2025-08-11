@@ -6,8 +6,6 @@
   <title>Anish Ketha — ML Engineer & SWE Portfolio</title>
   <link rel="canonical" href="https://KingShmo.github.io/">
   <meta name="robots" content="index,follow" />
-
-  <!-- Primary description -->
   <meta name="description" content="Portfolio of Anish Ketha — ML Engineer & Software Engineer. Projects: WayFindAR, Chase Wrapped, ML/Quant research, and more." />
 
   <!-- Open Graph -->
@@ -26,210 +24,135 @@
   <meta name="twitter:description" content="AR + LLM navigation, ETL automation, and full-stack builds." />
   <meta name="twitter:image" content="https://KingShmo.github.io/og-card.png" />
 
-  <!-- Favicon and theme -->
+  <!-- Favicon -->
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230ea5e9'/%3E%3Ctext x='50' y='60' font-size='56' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EA%3C/text%3E%3C/svg%3E">
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-X6eBzpihWkYw1AzRB4sJKYrOuwOhmgJcR7fjyGjb7rm7mhXoA66y0bFqt0plIyv8FqaXXeST1f6EBhmri96qKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Analytics (Plausible) -->
+  <!-- Analytics -->
   <script defer data-domain="KingShmo.github.io" src="https://plausible.io/js/script.js"></script>
 
   <style>
-    /* ---------- Theme tokens ---------- */
+    /* --------- Theme tokens --------- */
     :root{
       --bg:  12 12 16;
       --fg:  245 245 250;
       --muted: 170 170 180;
       --card: 22 22 28;
-      --accent: 14 165 233; /* sky-500 */
-      --ring: 59 130 246;   /* blue-500 */
-      --shadow: 0 0 0;
+      --accent: 14 165 233;
+      --ring: 59 130 246;
     }
     :root.light{
       --bg:  252 252 255;
       --fg:  17 24 39;
       --muted: 99 99 112;
       --card: 255 255 255;
-      --accent: 2 132 199; /* sky-600 */
+      --accent: 2 132 199;
       --ring: 2 132 199;
-      --shadow: 0 0 0;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
       color: rgb(var(--fg));
-      background: rgb(var(--bg)); /* base underlay for the poly svg */
+      background: rgb(var(--bg));
       line-height: 1.6;
     }
     a{color: rgb(var(--accent)); text-decoration: none}
     a:hover{text-decoration: underline}
     .container{max-width:1100px;margin-inline:auto;padding:24px}
 
-    /* ---------- Low-poly animated background ---------- */
+    /* --------- Low-poly animated background --------- */
     .poly-bg{
-      position: fixed;
-      inset: -10% -10% -10% -10%;
-      z-index: -1;
-      pointer-events: none;
-      opacity: .5;
+      position: fixed; inset: -10%;
+      z-index: -1; pointer-events:none; opacity:.5;
     }
-    .poly-bg polygon{
-      transform-origin: center;
-      animation: floaty 16s ease-in-out infinite;
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,.25));
-    }
-    .poly-bg polygon:nth-child(odd){ animation-duration: 22s }
+    .poly-bg polygon{ transform-origin:center; animation: floaty 18s ease-in-out infinite; filter: drop-shadow(0 8px 24px rgba(0,0,0,.25)); }
+    .poly-bg polygon:nth-child(odd){ animation-duration: 24s }
     .poly-bg polygon:nth-child(3n){ animation-duration: 28s }
-    @keyframes floaty{
-      0%   { transform: translateY(0) }
-      50%  { transform: translateY(-18px) }
-      100% { transform: translateY(0) }
-    }
+    @keyframes floaty{ 0%{transform:translateY(0)} 50%{transform:translateY(-18px)} 100%{transform:translateY(0)} }
 
     header{
-      position: sticky; top:0; z-index:50;
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(8px);
       background: color-mix(in oklab, rgb(var(--bg)) 85%, transparent);
-      border-bottom: 1px solid rgba(var(--fg),0.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      padding-block: 12px;
-    }
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px}
-    .brand .logo {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--ring)));
-      color: #fff; display:flex; align-items:center; justify-content:center;
-      font-weight:700; font-size:18px; margin-right:12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,.25);
-    }
-    .nav a{color:rgb(var(--fg));opacity:.85;padding:8px 10px;border-radius:10px}
-    .nav a:hover{opacity:1;background:rgba(var(--fg),.06);text-decoration:none}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 14px;border-radius:14px;
-      background:linear-gradient(180deg, rgba(var(--accent),.95), rgba(var(--accent),.85));
-      color:white;font-weight:600;border:none;cursor:pointer;
-      box-shadow: 0 6px 18px rgba(0,0,0, .3);
-      transition: transform .08s ease;
-    }
-    .btn:active{transform:translateY(1px)}
-    .btn.secondary{
-      background: rgba(var(--fg), .08); color: rgb(var(--fg));
-      box-shadow:none; border: 1px solid rgba(var(--fg), .14);
-    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:12px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .logo{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgb(var(--accent)),rgb(var(--ring)));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
 
-    .hero{
-      display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;
-      padding-block:50px;
-    }
-    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+    .nav a{color:rgb(var(--fg));opacity:.85;padding:8px 10px;border-radius:10px}
+    .nav a:hover{opacity:1;background:rgba(255,255,255,.06)}
+    .theme-switch{border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.06); padding:8px 10px; border-radius:9999px; cursor:pointer}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding-block:50px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
 
     .card{
       background: color-mix(in oklab, rgb(var(--card)) 92%, transparent);
-      border:1px solid rgba(var(--fg), .08);
+      border:1px solid rgba(255,255,255,.08);
       border-radius:24px; padding:24px;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-
-    h1{font-size: clamp(28px, 4vw, 48px); line-height:1.1; margin:0}
-    h2{font-size: clamp(22px, 2.6vw, 30px); margin: 4px 0 0 0}
-    .muted{color: rgb(var(--muted))}
-    .stack{display:flex;flex-wrap:wrap;gap:10px}
-    .chip{padding:6px 10px;border-radius:9999px;background:rgba(var(--fg),.06);border:1px solid rgba(var(--fg),.1);font-size:13px}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .span-6{grid-column: span 6}
-    .span-4{grid-column: span 4}
-    .span-12{grid-column: span 12}
-    @media (max-width:900px){ .span-6,.span-4{grid-column: span 12} }
-    .item h3{margin:.2rem 0}
-    .bullets{padding-left:1.1rem;margin:0}
-    .bullets li{margin:.4rem 0}
-    section{scroll-margin-top:80px}
-    .section-title{display:flex;align-items:center;gap:10px;margin: 28px 0 14px}
-    .divider{height:1px;background:linear-gradient(90deg, rgba(var(--fg),.12), rgba(var(--fg),0));margin-top:8px}
+    h1{font-size:clamp(28px,4vw,48px);line-height:1.1;margin:0}
+    h2{font-size:clamp(22px,2.6vw,30px);margin:4px 0 0 0}
+    .muted{color:rgb(var(--muted))}
     .kpi{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px}
-    .kpi .pill{background:rgba(var(--fg),.06);border:1px solid rgba(var(--fg),.1);border-radius:14px;padding:10px 12px;font-weight:600}
+    .kpi .pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:10px 12px;font-weight:600}
+    .stack{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:6px 10px;border-radius:9999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:13px}
+    .divider{height:1px;background:linear-gradient(90deg, rgba(255,255,255,.12), rgba(255,255,255,0));margin-top:8px}
+
+    /* Portrait + icon row */
+    .portrait{width:100%;border-radius:16px;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,.4);object-fit:cover}
+    .icon-row{display:flex;justify-content:center;gap:14px;margin-top:8px}
+    .icon-btn{
+      width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+      background:#fff;color:#111;border:1px solid rgba(0,0,0,.12);
+      border-radius:10px;font-size:22px;transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+    }
+    .icon-btn.circle{border-radius:50%}
+    .icon-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.25)}
+    .icon-btn.resume{background:#fff;color:#111}
+    .icon-btn:focus-visible{outline:2px solid rgb(var(--accent)); outline-offset:2px}
+
+    /* Sections */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .span-6{grid-column:span 6}
+    .span-12{grid-column:span 12}
+    @media (max-width:900px){.span-6{grid-column:span 12}}
+
+    .bullets{padding-left:1.1rem;margin:0}.bullets li{margin:.4rem 0}
+    section{scroll-margin-top:80px}
+    .section-title{display:flex;align-items:center;gap:10px;margin:28px 0 14px}
+
+    /* About */
+    .about-section{text-align:center;max-width:1100px;margin:0 auto;padding:2rem 1rem}
+    .about-flex{display:flex;align-items:flex-start;gap:2.5rem;margin-top:1.2rem;justify-content:center;flex-wrap:wrap}
+    .about-cartoon{width:180px;max-width:30vw;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+    .about-main{flex:1;min-width:260px;max-width:700px;display:flex;flex-direction:column;gap:1.2rem;align-items:flex-start}
+    .about-text{text-align:left;font-size:1.05rem;line-height:1.8;color:rgb(var(--muted))}
+    .about-details-container{width:100%;display:flex;justify-content:center;margin-top:8px}
+    .about-containers{display:flex;gap:16px;flex-wrap:wrap}
+    .details-container{background:color-mix(in oklab, rgb(var(--card)) 92%, transparent);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 18px;min-width:220px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+    .details-container h3{margin:8px 0 4px}.details-container p{margin:0;color:rgb(var(--muted))}
+    .icon{color:rgb(var(--accent))}.italic{font-style:italic}
+
+    /* Skills bars */
+    .skill-grid{display:flex;flex-direction:column;gap:1rem}
+    .skill-item{background:rgba(255,255,255,.06);padding:.8rem;border-radius:8px}
+    .skill-header{display:flex;justify-content:space-between;margin-bottom:.5rem}
+    .skill-bar{height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+    .skill-progress{height:100%;background:linear-gradient(90deg, rgb(var(--accent)) 0%, rgb(var(--ring)) 100%);border-radius:4px;transition:width 1s ease}
+
     .footer{padding:24px 0;color:rgb(var(--muted));font-size:14px}
-    .filter{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 16px}
-    .filter .toggle{padding:8px 12px;border-radius:9999px;border:1px solid rgba(var(--fg),.15);cursor:pointer;background:rgba(var(--fg),.05)}
-    .filter .toggle.active{background: rgba(var(--accent), .16); border-color: rgba(var(--accent), .6); color: rgb(var(--accent));}
-
-    /* Project hover sheen */
-    .project{ position: relative; overflow: hidden; cursor: pointer; transition: transform .3s ease, box-shadow .3s ease; }
-    .project:hover{ transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 35px rgba(0,0,0,.3); }
-    .project::before{ content: ''; position: absolute; inset: 0; background: rgba(var(--accent), 0.08); opacity: 0; transform: translateY(20px); transition: transform .3s ease, opacity .3s ease; }
-    .project:hover::before{ opacity: 1; transform: translateY(0); }
-
-    .badge{font-size:12px;border:1px solid rgba(var(--fg),.15);border-radius:9999px;padding:4px 8px;color:rgb(var(--muted))}
-    .theme-switch{border:1px solid rgba(var(--fg),.2); background:rgba(var(--fg),.06); padding:8px 10px; border-radius:9999px; cursor:pointer}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-
-    /* Portrait */
-    .portrait{ width:100%; border-radius:16px; margin-bottom:12px; box-shadow:0 4px 12px rgba(0,0,0,.4); object-fit:cover; }
-
-    /* --- Social icons row you requested --- */
-    #socials-container{
-      display:flex; gap:16px; align-items:center; margin-top:18px;
-    }
-    .link-icon{
-      font-size: 28px; line-height: 1; cursor: pointer;
-      color: rgb(var(--fg));
-      background: rgba(var(--fg), .08);
-      border: 1px solid rgba(var(--fg), .14);
-      width: 42px; height: 42px; display:flex; align-items:center; justify-content:center;
-      border-radius: 10px;
-      transition: transform .15s ease, color .15s ease, background .15s ease, box-shadow .15s ease;
-    }
-    .hover-icon:hover{
-      color: rgb(var(--accent));
-      background: rgba(var(--accent), .12);
-      box-shadow: 0 6px 16px rgba(0,0,0,.2);
-      transform: translateY(-2px);
-    }
-
-    /* About section */
-    .about-section { text-align: center; max-width: 1100px; margin: 0 auto; padding: 2rem 1rem; }
-    .about-header { color: rgb(var(--fg)); margin-bottom: 0.5rem; font-weight: 600; font-size: 1.2rem; opacity: .9; }
-    .about-flex { display: flex; align-items: flex-start; gap: 2.5rem; margin-top: 1.2rem; justify-content: center; flex-wrap: wrap; }
-    .about-cartoon { width: 180px; min-width: 120px; max-width: 30vw; height: auto; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.12); object-fit: cover; }
-    .about-main { flex: 1; min-width: 260px; max-width: 700px; display: flex; flex-direction: column; gap: 1.2rem; align-items: flex-start; }
-    .about-text { text-align: left; font-size: 1.05rem; line-height: 1.8; color: rgb(var(--muted)); }
-
-    /* Details containers you asked to add (Experience / Education) */
-    .about-details-container{ width:100%; display:flex; justify-content:center; margin-top: 8px; }
-    .about-containers{ display:flex; gap:16px; flex-wrap:wrap; }
-    .details-container{
-      background: color-mix(in oklab, rgb(var(--card)) 92%, transparent);
-      border:1px solid rgba(var(--fg), .08);
-      border-radius:16px; padding:14px 18px; min-width: 220px;
-      text-align:center; box-shadow: 0 8px 20px rgba(0,0,0,.2);
-    }
-    .details-container h3{ margin: 8px 0 4px; }
-    .details-container p{ margin: 0; color: rgb(var(--muted)); }
-    .icon{ color: rgb(var(--accent)); }
-    .italic{ font-style: italic; }
-
-    /* Skills section bits from your file */
-    .skill-grid{ display:flex; flex-direction:column; gap:1rem; }
-    .skill-item{ background: rgba(var(--fg), .06); padding:0.8rem; border-radius:8px; }
-    .skill-header{ display:flex; justify-content:space-between; margin-bottom:0.5rem; }
-    .skill-bar{ height:8px; background: rgba(var(--fg),0.15); border-radius:4px; overflow:hidden; }
-    .skill-progress{ height:100%; background: linear-gradient(90deg, rgb(var(--accent)) 0%, rgb(var(--ring)) 100%); border-radius:4px; transition: width 1s ease; }
-
-    /* Social links in Contact */
-    .social-links { display:flex; gap:16px; align-items:center; }
-    .social-links a { color: rgb(var(--accent)); font-size: 24px; transition: transform 0.2s ease, color 0.2s ease; }
-    .social-links a:hover { transform: translateY(-2px); color: rgb(var(--ring)); }
   </style>
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -239,15 +162,12 @@
     "email": "mailto:kethaa0314@gmail.com",
     "telephone": "+1-732-772-5810",
     "url": "https://KingShmo.github.io",
-    "sameAs": [
-      "https://www.linkedin.com/in/anishketha",
-      "https://github.com/KingShmo"
-    ]
+    "sameAs": ["https://www.linkedin.com/in/anishketha","https://github.com/KingShmo"]
   }
   </script>
 </head>
 <body>
-  <!-- Low-poly animated background (kept lightweight & subtle) -->
+  <!-- Low-poly animated background -->
   <svg class="poly-bg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <defs>
       <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
@@ -269,10 +189,7 @@
 
   <header>
     <div class="container nav">
-      <div class="brand">
-        <span class="logo">AK</span>
-        <span>Anish Ketha</span>
-      </div>
+      <div class="brand"><span class="logo">AK</span><span>Anish Ketha</span></div>
       <nav class="stack" aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -289,12 +206,12 @@
     <!-- HERO -->
     <section id="home" class="hero">
       <div class="card">
-        <h1>Hey, I'm <span style="font-weight:800">Anish Ketha</span></h1>
+        <h1>Hey, I'm <strong>Anish Ketha</strong></h1>
         <h2 class="muted" style="margin-top:6px">ML Engineer &amp; Full-Stack Developer</h2>
 
         <p class="muted" style="margin-top:8px">
-          Purdue CS &amp; Finance (’26). Hackathon podiums at JPMorgan Chase (3rd) and Ignite WebAR &amp; AI (2nd).
-          I design for clarity, ship with quality, and sweat the details.
+          Purdue CS &amp; Finance ’26. Hackathon podiums: <strong>JPMorgan (3rd)</strong>, <strong>Ignite WebAR &amp; AI (2nd)</strong>.
+          I value clear UX and production-ready code.
         </p>
 
         <div class="kpi" role="list" aria-label="Highlights">
@@ -304,32 +221,16 @@
         </div>
 
         <div style="display:flex;gap:12px;margin-top:18px">
-          <a class="btn" href="Anish_Ketha_Resume_2026.pdf" download>⬇️ Download Resume</a>
-          <a class="btn secondary" href="mailto:kethaa0314@gmail.com">✉️ Contact</a>
-        </div>
-
-        <!-- Socials container (exact markup you requested) -->
-        <div id="socials-container" aria-label="Social links">
-          <i
-            class="fa-brands fa-linkedin link-icon hover-icon"
-            onclick="window.open('https://www.linkedin.com/in/anishketha', '_blank')"
-            title="LinkedIn"
-            aria-label="LinkedIn"
-          ></i>
-          <i
-            class="fa-brands fa-github link-icon hover-icon"
-            onclick="window.open('https://github.com/KingShmo', '_blank')"
-            title="GitHub"
-            aria-label="GitHub"
-          ></i>
+          <a class="btn" href="Anish_Ketha_Resume_2026.pdf" download>⬇️ Download Résumé</a>
+          <a class="btn secondary" href="mailto:kethaa0314@gmail.com">✉️ Email me</a>
         </div>
 
         <div class="divider" style="margin-top:18px"></div>
         <h2 style="margin-top:12px">Now</h2>
         <ul class="bullets">
-          <li>Engineering ETL pipelines in <strong>Alteryx + Python</strong> that eliminated <strong>4 hours/day</strong> of manual processing and accelerated reporting.</li>
-          <li>Prototyping <strong>WayFindAR</strong>: AR indoor navigation with <strong>LLM-guided</strong> route intelligence and Blender-made scenes.</li>
-          <li>Shipping usable UI with React/TypeScript and clean, testable backend endpoints in Java/Spring.</li>
+          <li>Engineering ETL pipelines in <strong>Alteryx + Python</strong> that eliminated <strong>4 hours/day</strong> of manual work and sped up reporting.</li>
+          <li>Prototyping <strong>WayFindAR</strong> — AR indoor navigation with <strong>LLM-guided</strong> route intelligence and Blender scenes.</li>
+          <li>Shipping React/TypeScript frontends and clean, testable Spring/Java backends.</li>
         </ul>
         <div class="stack" style="margin-top:12px">
           <span class="chip">Python</span><span class="chip">Java</span><span class="chip">TypeScript</span>
@@ -340,11 +241,24 @@
 
       <div class="card">
         <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
-        <!-- You can keep or remove these; left the row for quick access -->
-        <div class="stack" style="margin-top:8px">
-          <a href="https://www.linkedin.com/in/anishketha" target="_blank" aria-label="LinkedIn" class="badge">LinkedIn</a>
-          <a href="https://github.com/KingShmo" target="_blank" aria-label="GitHub" class="badge">GitHub</a>
-          <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Download resume" class="badge">Resume</a>
+
+        <!-- ICONS directly under the portrait (LinkedIn square, GitHub circle, Resume doc) -->
+        <div class="icon-row" aria-label="Profile links">
+          <!-- LinkedIn: square look -->
+          <button class="icon-btn" title="LinkedIn" aria-label="LinkedIn"
+                  onclick="window.open('https://www.linkedin.com/in/anishketha', '_blank')">
+            <i class="fa-brands fa-linkedin"></i>
+          </button>
+          <!-- GitHub: circle look -->
+          <button class="icon-btn circle" title="GitHub" aria-label="GitHub"
+                  onclick="window.open('https://github.com/KingShmo', '_blank')">
+            <i class="fa-brands fa-github"></i>
+          </button>
+          <!-- Resume: document icon -->
+          <button class="icon-btn resume" title="Résumé (PDF)" aria-label="Résumé"
+                  onclick="window.open('Anish_Ketha_Resume_2026.pdf', '_blank')">
+            <i class="fa-solid fa-file-lines"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -358,13 +272,11 @@
         <div class="about-main">
           <div class="about-details-container">
             <div class="about-containers">
-              <!-- Experience icon box -->
               <div class="details-container">
                 <i class="fa-solid fa-briefcase icon" style="font-size:28px"></i>
                 <h3>Experience</h3>
                 <p><span class="italic">3+ Internships<br/>ML, SWE, Quant</span></p>
               </div>
-              <!-- Education icon box -->
               <div class="details-container">
                 <i class="fa-solid fa-graduation-cap icon" style="font-size:28px"></i>
                 <h3>Education</h3>
@@ -372,41 +284,40 @@
               </div>
             </div>
           </div>
-
           <div class="about-text">
-            <p>Hello! I'm a senior at Purdue University majoring in Computer Science and Finance. Over the past few years I've completed internships and projects across machine learning, fintech and software engineering, honing skills in ETL automation, AR navigation and full-stack development.</p>
-            <p>I'm currently seeking co-op, internship and full-time opportunities in machine learning engineering, software engineering and quantitative research. I thrive on building polished, data-driven systems and enjoy combining analytical rigor with creative design.</p>
+            <p>Hello! I'm a senior at Purdue University majoring in Computer Science and Finance. I’ve completed internships and projects across ML, fintech, and software engineering—focused on ETL automation, AR navigation, and full-stack development.</p>
+            <p>I'm seeking co-op, internship, and full-time roles in ML engineering, software engineering, and quantitative research. I like pairing clear UX with robust engineering.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- EXPERIENCE (same content as before) -->
     <section id="experience">
       <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
       <div class="grid">
         <article class="card item span-6">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <h3>JPMorgan Chase — Global Finance &amp; Business Mgmt</h3>
-            <span class="badge">Summer 2025 • Newark, DE</span>
+            <span class="kpi pill">Summer 2025 • Newark, DE</span>
           </div>
           <p class="muted"><em>Corporate Summer Analyst</em></p>
           <ul class="bullets">
-            <li>Built end-to-end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity for stakeholders.</li>
+            <li>Built end-to-end <strong>ETL in Alteryx + Python</strong> eliminating <strong>~4 hrs/day</strong> of manual processing; improved reporting velocity.</li>
             <li>Worked in <strong>agile</strong> cadence (stand-ups, sprint planning) to hit MVP checkpoints.</li>
-            <li>Co-created <strong>Chase Wrapped</strong> (Java/Spring/React) turning complex financials into interactive narratives — <strong>3rd place</strong> at firmwide hackathon.</li>
+            <li>Co-created <strong>Chase Wrapped</strong> (Java/Spring/React) — <strong>3rd place</strong> at firm-wide hackathon.</li>
           </ul>
         </article>
 
         <article class="card item span-6">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <h3>Ascendion</h3>
-            <span class="badge">Summer 2023 • Basking Ridge, NJ</span>
+            <span class="kpi pill">Summer 2023 • Basking Ridge, NJ</span>
           </div>
           <p class="muted"><em>Machine Learning Engineer</em></p>
           <ul class="bullets">
-            <li>Preprocessed/validated datasets driving simulation systems for a <strong>Divestiture Portfolio</strong> (C#, React, Bootstrap).</li>
-            <li>Modeled asset dependencies with <strong>Neo4j</strong> network graphs to deepen scenario analysis.</li>
+            <li>Preprocessed/validated datasets for a <strong>Divestiture Portfolio</strong> (C#, React, Bootstrap).</li>
+            <li>Modeled asset dependencies with <strong>Neo4j</strong> graphs to deepen scenario analysis.</li>
             <li>Built an <strong>NLP healthcare chatbot</strong> to suggest likely conditions and potential treatments.</li>
           </ul>
         </article>
@@ -414,12 +325,12 @@
         <article class="card item span-6">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <h3>Liberty Coca-Cola</h3>
-            <span class="badge">Summer 2022 • Brooklyn, NY</span>
+            <span class="kpi pill">Summer 2022 • Brooklyn, NY</span>
           </div>
           <p class="muted"><em>Asset Auditor</em></p>
           <ul class="bullets">
             <li>Audited equipment across Staten Island &amp; Brooklyn; produced trend reports in Excel &amp; PowerPoint.</li>
-            <li>Identified target locations to optimize customer retention and daily route efficiency.</li>
+            <li>Identified targets to optimize customer retention and daily route efficiency.</li>
           </ul>
         </article>
       </div>
@@ -577,9 +488,7 @@
         </div>
       </div>
     </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="span-12">
       <div class="section-title"><h2><i class="fas fa-envelope"></i> Contact</h2></div>
       <div class="card">
         <div class="grid">
@@ -590,10 +499,19 @@
           </div>
           <div class="span-6">
             <p><strong>Links:</strong></p>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/anishketha" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-              <a href="https://github.com/KingShmo" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-              <a href="Anish_Ketha_Resume_2026.pdf" download aria-label="Resume"><i class="fas fa-file-lines"></i></a>
+            <div class="icon-row" style="justify-content:flex-start">
+              <button class="icon-btn" title="LinkedIn" aria-label="LinkedIn"
+                      onclick="window.open('https://www.linkedin.com/in/anishketha', '_blank')">
+                <i class="fa-brands fa-linkedin"></i>
+              </button>
+              <button class="icon-btn circle" title="GitHub" aria-label="GitHub"
+                      onclick="window.open('https://github.com/KingShmo', '_blank')">
+                <i class="fa-brands fa-github"></i>
+              </button>
+              <button class="icon-btn resume" title="Résumé (PDF)" aria-label="Résumé"
+                      onclick="window.open('Anish_Ketha_Resume_2026.pdf', '_blank')">
+                <i class="fa-solid fa-file-lines"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -602,8 +520,7 @@
 
     <footer class="container footer">
       <div class="divider"></div>
-      <p>© <span id="y"></span> Anish Ketha — Crafted with semantic HTML, accessible UI, and zero frameworks.</p>
-    </footer>
+      <p>© <span id="y"></span> Anish Ketha 
   </main>
 
   <script>
@@ -614,7 +531,7 @@
     const html = document.documentElement;
     const btn = document.getElementById('theme');
     const stored = localStorage.getItem('theme');
-    if(stored){ html.className = stored; btn.textContent = stored === 'light' ? '🌙' : '☀️'; }
+    if (stored){ html.className = stored; btn.textContent = stored === 'light' ? '🌙' : '☀️'; }
     btn.addEventListener('click', () => {
       const light = html.classList.toggle('light');
       btn.textContent = light ? '🌙' : '☀️';
@@ -622,34 +539,16 @@
       localStorage.setItem('theme', light ? 'light' : '');
     });
 
-    // Project filter
-    const toggles = document.querySelectorAll('.toggle');
-    const cards = document.querySelectorAll('.project');
-    toggles.forEach(t => t.addEventListener('click', () => {
-      toggles.forEach(x => x.classList.remove('active'));
-      t.classList.add('active');
-      const tag = t.dataset.tag;
-      cards.forEach(c => {
-        const tags = c.dataset.tags?.split(' ') ?? [];
-        c.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
-      });
-    }));
-
-    // Animate skill progress bars on scroll into view
-    const progressBars = document.querySelectorAll('.skill-progress');
-    progressBars.forEach(bar => {
-      const width = bar.style.width;
-      bar.style.width = '0%';
-      const observer = new IntersectionObserver(entries => {
-        if(entries[0].isIntersecting){
-          bar.style.width = width;
-          observer.unobserve(bar);
-        }
-      }, { threshold: 0.5 });
-      observer.observe(bar);
+    // Animate skill progress bars on scroll
+    document.querySelectorAll('.skill-progress').forEach(bar => {
+      const width = bar.style.width; bar.style.width = '0%';
+      const obs = new IntersectionObserver(e => {
+        if (e[0].isIntersecting){ bar.style.width = width; obs.unobserve(bar); }
+      }, { threshold: .5 });
+      obs.observe(bar);
     });
 
-    // Fade-in and slide-up animation for project cards on scroll
+    // Project card fade-in (if you keep Projects section)
     const projectObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -658,7 +557,7 @@
           projectObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: .3 });
     document.querySelectorAll('.project').forEach(card => {
       card.style.opacity = '0';
       card.style.transform = 'translateY(20px)';
