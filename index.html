@@ -1,478 +1,638 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Anish Ketha - Software Engineer & Finance Portfolio">
-    <title>Anish Ketha | Software Engineer</title>
-    <!-- Importing a sleek modern font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anish Ketha — ML Engineer & SWE Portfolio</title>
+  <link rel="canonical" href="https://KingShmo.github.io/">
+  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Portfolio of Anish Ketha — ML Engineer & Software Engineer. Projects: WayFindAR, Chase Wrapped, ML/Quant research, and more." />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Anish Ketha" />
+  <meta property="og:url" content="https://KingShmo.github.io/" />
+  <meta property="og:title" content="Anish Ketha — ML Engineer & SWE" />
+  <meta property="og:description" content="AR + LLM navigation, ETL automation, and full-stack builds." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://KingShmo.github.io/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Anish Ketha — ML Engineer & SWE" />
+  <meta name="twitter:description" content="AR + LLM navigation, ETL automation, and full-stack builds." />
+  <meta name="twitter:image" content="https://KingShmo.github.io/og-card.png" />
+
+  <!-- Favicon -->
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230ea5e9'/%3E%3Ctext x='50' y='60' font-size='56' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EA%3C/text%3E%3C/svg%3E">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Analytics -->
+  <script defer data-domain="KingShmo.github.io" src="https://plausible.io/js/script.js"></script>
+
+  <style>
+    /* --------- Theme tokens --------- */
+    :root{
+      --bg:  12 12 16;
+      --fg:  245 245 250;
+      --muted: 170 170 180;
+      --card: 22 22 28;
+      --accent: 14 165 233;
+      --ring: 59 130 246;
+    }
+    :root.light{
+      --bg:  252 252 255;
+      --fg:  17 24 39;
+      --muted: 99 99 112;
+      --card: 255 255 255;
+      --accent: 2 132 199;
+      --ring: 2 132 199;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
+      color: rgb(var(--fg));
+      background: rgb(var(--bg));
+      line-height: 1.6;
+    }
+    a{color: rgb(var(--accent)); text-decoration: none}
+    a:hover{text-decoration: underline}
+    .container{max-width:1100px;margin-inline:auto;padding:24px}
+
+    /* --------- Low-poly animated background --------- */
+    .poly-bg{
+      position: fixed; inset: -10%;
+      z-index: -1; pointer-events:none; opacity:.5;
+    }
+    .poly-bg polygon{ transform-origin:center; animation: floaty 18s ease-in-out infinite; filter: drop-shadow(0 8px 24px rgba(0,0,0,.25)); }
+    .poly-bg polygon:nth-child(odd){ animation-duration: 24s }
+    .poly-bg polygon:nth-child(3n){ animation-duration: 28s }
+    @keyframes floaty{ 0%{transform:translateY(0)} 50%{transform:translateY(-18px)} 100%{transform:translateY(0)} }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(8px);
+      background: color-mix(in oklab, rgb(var(--bg)) 85%, transparent);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:12px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .logo{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,rgb(var(--accent)),rgb(var(--ring)));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+    .nav a{color:rgb(var(--fg));opacity:.85;padding:8px 10px;border-radius:10px}
+    .nav a:hover{opacity:1;background:rgba(255,255,255,.06)}
+    .theme-switch{border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.06); padding:8px 10px; border-radius:9999px; cursor:pointer}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding-block:50px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+
+    /* Global Card Styles */
+    .card{
+      background: color-mix(in oklab, rgb(var(--card)) 92%, transparent);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px; padding:24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      border-left: 4px solid transparent;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
     
-    <style>
-        /* Base Variables & Reset */
-        :root {
-            --bg-color: #0b1120;
-            --surface-color: rgba(30, 41, 59, 0.7);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-primary: #38bdf8;
-            
-            /* Company Brand Colors */
-            --brand-jj: #E31837; /* J&J Red */
-            --brand-jpmc: #005EB8; /* JPMC Blue */
-            --brand-ascendion: #ff6b81; /* Ascendion Red/Pink */
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+    /* Color Coded Experience Brands */
+    .brand-jj {
+      border-left-color: #C8102E !important;
+      background: linear-gradient(135deg, rgba(200, 16, 46, 0.08) 0%, color-mix(in oklab, rgb(var(--card)) 92%, transparent) 40%);
+    }
+    .brand-jpmc {
+      border-left-color: #005EB8 !important;
+      background: linear-gradient(135deg, rgba(0, 94, 184, 0.08) 0%, color-mix(in oklab, rgb(var(--card)) 92%, transparent) 40%);
+    }
+    .brand-ascendion {
+      border-left-color: #E31837 !important;
+      background: linear-gradient(135deg, rgba(227, 24, 55, 0.08) 0%, color-mix(in oklab, rgb(var(--card)) 92%, transparent) 40%);
+    }
+    .brand-coke {
+      border-left-color: #F40009 !important;
+      background: linear-gradient(135deg, rgba(244, 0, 9, 0.08) 0%, color-mix(in oklab, rgb(var(--card)) 92%, transparent) 40%);
+    }
+    .brand-jj:hover, .brand-jpmc:hover, .brand-ascendion:hover, .brand-coke:hover {
+      transform: translateY(-4px);
+    }
 
-        body {
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(0, 94, 184, 0.15) 0px, transparent 50%);
-            background-attachment: fixed;
-            color: var(--text-main);
-            line-height: 1.7;
-            padding: 2rem;
-            -webkit-font-smoothing: antialiased;
-        }
+    h1{font-size:clamp(28px,4vw,48px);line-height:1.1;margin:0}
+    h2{font-size:clamp(22px,2.6vw,30px);margin:4px 0 0 0}
+    .muted{color:rgb(var(--muted))}
+    
+    .kpi{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px}
+    .kpi .pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:10px 12px;font-weight:600}
+    
+    .stack{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:6px 10px;border-radius:9999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);font-size:13px}
+    .divider{height:1px;background:linear-gradient(90deg, rgba(255,255,255,.12), rgba(255,255,255,0));margin-top:8px}
 
-        /* Container & Layout */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    /* Portrait + icon row */
+    .portrait{width:100%;border-radius:16px;margin-bottom:12px;box-shadow:0 4px 12px rgba(0,0,0,.4);object-fit:cover}
+    .icon-row{display:flex;justify-content:center;gap:14px;margin-top:8px}
+    .icon-btn{
+      width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+      background:#fff;color:#111;border:1px solid rgba(0,0,0,.12);
+      border-radius:10px;font-size:22px;transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+      cursor: pointer;
+    }
+    .icon-btn.circle{border-radius:50%}
+    .icon-btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.25)}
+    .icon-btn.resume{background:#fff;color:#111}
+    
+    /* Resume specific button styles */
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      color: rgb(var(--fg));
+      border: 1px solid rgba(255,255,255,0.2);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); text-decoration: none; }
 
-        /* Header Styles */
-        header {
-            text-align: center;
-            margin-bottom: 5rem;
-            margin-top: 2rem;
-            animation: fadeInDown 0.8s ease-out;
-        }
+    /* Sections */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .span-6{grid-column:span 6}
+    .span-12{grid-column:span 12}
+    @media (max-width:900px){.span-6{grid-column:span 12}}
 
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .bullets{padding-left:1.1rem;margin:0}.bullets li{margin:.6rem 0; color: #e2e8f0;}
+    section{scroll-margin-top:80px}
+    .section-title{display:flex;align-items:center;gap:10px;margin:28px 0 14px}
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
+    /* About */
+    .about-section{text-align:center;max-width:1100px;margin:0 auto;padding:2rem 1rem}
+    .about-flex{display:flex;align-items:flex-start;gap:2.5rem;margin-top:1.2rem;justify-content:center;flex-wrap:wrap}
+    .about-cartoon{width:180px;max-width:30vw;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+    .about-main{flex:1;min-width:260px;max-width:700px;display:flex;flex-direction:column;gap:1.2rem;align-items:flex-start}
+    .about-text{text-align:left;font-size:1.05rem;line-height:1.8;color:rgb(var(--muted))}
+    .about-details-container{width:100%;display:flex;justify-content:center;margin-top:8px}
+    .about-containers{display:flex;gap:16px;flex-wrap:wrap}
+    .details-container{background:color-mix(in oklab, rgb(var(--card)) 92%, transparent);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 18px;min-width:220px;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+    .details-container h3{margin:8px 0 4px}.details-container p{margin:0;color:rgb(var(--muted))}
+    .icon{color:rgb(var(--accent))}.italic{font-style:italic}
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
+    /* Projects */
+    .filter{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 16px}
+    .toggle{padding:8px 12px;border-radius:9999px;border:1px solid rgba(255,255,255,.15);cursor:pointer;background:rgba(255,255,255,.06);color:rgb(var(--fg));font-weight:600}
+    .toggle.active{background: rgba(14,165,233,.16); border-color: rgba(14,165,233,.6); color: rgb(var(--accent));}
+    .project{
+      position: relative;
+      overflow: hidden;
+      border-left: none !important;
+      background:
+        radial-gradient(1200px 600px at -20% -20%, rgba(14,165,233,.08), transparent 60%),
+        radial-gradient(1000px 600px at 120% 120%, rgba(59,130,246,.08), transparent 60%),
+        color-mix(in oklab, rgb(var(--card)) 92%, transparent);
+    }
+    .project:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+    .project h3{margin:.2rem 0}
+    .badge{font-size:13px;border:1px solid rgba(255,255,255,.15);border-radius:9999px;padding:4px 8px;color:rgb(var(--accent))}
 
-        .contact-info a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    /* Skills bars */
+    .skill-grid{display:flex;flex-direction:column;gap:1rem}
+    .skill-item{background:rgba(255,255,255,.06);padding:.8rem;border-radius:8px}
+    .skill-header{display:flex;justify-content:space-between;margin-bottom:.5rem}
+    .skill-bar{height:8px;background:rgba(255,255,255,.15);border-radius:4px;overflow:hidden}
+    .skill-progress{height:100%;background:linear-gradient(90deg, rgb(var(--accent)) 0%, rgb(var(--ring)) 100%);border-radius:4px;transition:width 1s ease}
 
-        .contact-info a:hover {
-            color: var(--accent-primary);
-        }
-
-        /* Resume Button */
-        .resume-btn {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            padding: 0.75rem 2rem;
-            border-radius: 30px;
-            color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .resume-btn:hover {
-            background: rgba(56, 189, 248, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15);
-        }
-
-        /* Sections */
-        section {
-            margin-bottom: 5rem;
-            animation: fadeIn 1s ease-out;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        h2::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Experience Cards (Glassmorphism) */
-        .card {
-            background: var(--surface-color);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid transparent;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .card-title h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            color: var(--text-main);
-        }
-
-        .card-title h4 {
-            color: var(--text-muted);
-            font-weight: 400;
-            font-size: 1.1rem;
-        }
-
-        .card-date {
-            font-size: 0.9rem;
-            color: var(--accent-primary);
-            background: rgba(56, 189, 248, 0.1);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-
-        .card ul {
-            list-style-type: none;
-        }
-
-        .card ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }
-
-        .card ul li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent-primary);
-            font-weight: bold;
-        }
-
-        /* Color Coding Themes */
-        .theme-jj {
-            border-left-color: var(--brand-jj);
-        }
-        .theme-jj:hover {
-            box-shadow: 0 20px 40px rgba(227, 24, 55, 0.1);
-        }
-
-        .theme-jpmc {
-            border-left-color: var(--brand-jpmc);
-        }
-        .theme-jpmc:hover {
-            box-shadow: 0 20px 40px rgba(0, 94, 184, 0.1);
-        }
-
-        .theme-ascendion {
-            border-left-color: var(--brand-ascendion);
-        }
-        .theme-ascendion:hover {
-            box-shadow: 0 20px 40px rgba(255, 107, 129, 0.1);
-        }
-
-        /* Skills Tags */
-        .skills-section {
-            margin-bottom: 2rem;
-        }
-        
-        .skills-section h3 {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            color: #e2e8f0;
-            padding: 0.5rem 1.2rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.2s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-primary);
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .card { padding: 1.5rem; }
-            .card-header { flex-direction: column; align-items: flex-start; }
-            .card-date { margin-top: 0.5rem; }
-        }
-    </style>
+    .footer{padding:24px 0;color:rgb(var(--muted));font-size:14px}
+  </style>
 </head>
 <body>
+  <!-- Low-poly animated background -->
+  <svg class="poly-bg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="rgb(var(--accent))" stop-opacity=".24"/>
+        <stop offset="100%" stop-color="rgb(var(--ring))" stop-opacity=".24"/>
+      </linearGradient>
+      <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="rgb(var(--ring))" stop-opacity=".18"/>
+        <stop offset="100%" stop-color="rgb(var(--accent))" stop-opacity=".18"/>
+      </linearGradient>
+    </defs>
+    <polygon fill="url(#g1)" points="0,1000 0,500 400,800"/>
+    <polygon fill="url(#g2)" points="0,0 600,0 260,360"/>
+    <polygon fill="url(#g1)" points="1600,0 1000,0 1340,380"/>
+    <polygon fill="url(#g2)" points="1600,1000 1100,680 1600,420"/>
+    <polygon fill="url(#g1)" points="600,1000 1000,760 1200,1000"/>
+    <polygon fill="url(#g2)" points="420,120 900,340 540,520"/>
+  </svg>
 
-    <div class="container">
-        <!-- Header Section -->
-        <header>
-            <h1>Anish Ketha</h1>
-            <div class="subtitle">B.S. Computer Science & Finance @ Purdue University</div>
-            
-            <div class="contact-info">
-                <a href="mailto:kethaa0314@gmail.com">kethaa0314@gmail.com</a>
-                <a href="https://linkedin.com/in/anishketha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://KingShmo.github.io">GitHub</a>
-                <span>732-772-5810</span>
-            </div>
-            
-            <!-- Link directly matches the provided filename. Ensure it's in the same repo folder! -->
-            <a href="" class="resume-btn" target="_blank">
-                View Full Resume (PDF)
-            </a>
-        </header>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2>Experience</h2>
-
-            <!-- Johnson & Johnson (Red Theme) -->
-            <div class="card theme-jj">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3>Johnson & Johnson</h3>
-                        <h4>Software Engineer Intern | New Brunswick, NJ</h4>
-                    </div>
-                    <div class="card-date">June 2026 – August 2026</div>
-                </div>
-                <ul>
-                    <li>Developed AI agents spanning input, routing, execution, and quality validation layers for anomaly detection in balance sheet account reconciliations, clearing over 60,000 unreconciled transactions across a global treasury portfolio.</li>
-                    <li>Built a composite risk scoring model that classified 2,200 balance sheet accounts by severity, enabling finance teams to prioritize reconciliation items.</li>
-                    <li>Used PySpark and SparkR to migrate forecasting models and data objects from Domino to Databricks, consolidating data from SAP S/4HANA, SAP Central Finance, and SAP Datasphere.</li>
-                    <li>Created a SQL data model that unified actual, targeted, and predicted revenue data across regional and product segments, replacing Excel outputs with Power BI dashboards and a Copilot Q&A interface for forecasting insights.</li>
-                </ul>
-            </div>
-
-            <!-- JPMorgan Chase (Blue Theme) -->
-            <div class="card theme-jpmc">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3>JPMorgan Chase</h3>
-                        <h4>Corporate Summer Analyst | Newark, DE</h4>
-                    </div>
-                    <div class="card-date">June 2025 – August 2025</div>
-                </div>
-                <ul>
-                    <li>Engineered end-to-end data workflows using Alteryx and Python, implementing ETL pipelines that eliminated over 1,460 hours of manual processing annually and enabled real-time reporting for strategic decision-making.</li>
-                    <li>Deployed an automated reconciliation workflow for the APAC region that scans millions of ledger entries and flags unsettled transactions, saving 200 hours annually and reducing reconciliation errors by 30%.</li>
-                    <li>Applied Agile/Scrum methodology using Jira and Git to coordinate software delivery, accelerating MVP delivery timelines and reducing bug resolution time by 25%.</li>
-                </ul>
-            </div>
-
-            <!-- Ascendion (Red/White Theme) -->
-            <div class="card theme-ascendion">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3>Ascendion</h3>
-                        <h4>Machine Learning Engineer | Basking Ridge, NJ</h4>
-                    </div>
-                    <div class="card-date">June 2023 – August 2023</div>
-                </div>
-                <ul>
-                    <li>Developed predictive simulation components within a Divestiture Portfolio using C#, React, and Bootstrap to forecast budget allocations and visualize financial outcomes under varying asset sale scenarios.</li>
-                    <li>Generated and queried Neo4j graph databases to model and visualize asset dependencies, enabling risk assessment in divestiture planning.</li>
-                    <li>Created a Healthcare Chatbot using PyTorch, spaCy, and OpenCV that processes medical data to classify user-submitted images and symptoms, diagnose illnesses, and recommend potential treatments.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3>WayFindAR</h3>
-                        <h4>Pitch-Off 2025: WebAR & AI Finalist (2nd Place)</h4>
-                    </div>
-                    <div class="card-date">July 2025</div>
-                </div>
-                <ul>
-                    <li>Built a cross-platform web/mobile AR navigation tool that overlays 3D directions on live camera feeds using TypeScript, Three.js, and MindAR.js, enabling real-time indoor navigation in large office spaces.</li>
-                    <li>Integrated LLM Suite to generate intelligent route recommendations, suggest optimal visit times, and provide contextual insights, enhancing user experience through AI-driven personalization.</li>
-                    <li>Led prototyping and pitching, securing 2nd place in the competition and positioning the project for patent submission and commercial deployment.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3>Chase Wrapped</h3>
-                        <h4>JPMorgan Chase Global Hackathon (3rd Place)</h4>
-                    </div>
-                    <div class="card-date">June 2025</div>
-                </div>
-                <ul>
-                    <li>Spearheaded the concept, storyboarding, and deployment of Chase Wrapped, a full-stack fintech application built with Java, Spring Boot, and React that transformed raw financial data into digestible, interactive narratives.</li>
-                    <li>Implemented REST API endpoints to enable real-time financial data retrieval and responsive front-end updates.</li>
-                    <li>Delivered a live demo to a panel of judges communicating the application's innovative features and user benefits, securing 3rd place globally.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-title">
-                        <h3>Credit Card Fraud Detection</h3>
-                        <h4>Machine Learning Classifier</h4>
-                    </div>
-                    <div class="card-date">June 2023</div>
-                </div>
-                <ul>
-                    <li>Engineered features on transaction patterns and trained Naive Bayes and Random Forest classifiers with cross-validation using Pandas, NumPy, and Seaborn for fraud detection.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Technical Skills Section -->
-        <section id="skills">
-            <h2>Technical Arsenal</h2>
-            <div class="card">
-                <div class="skills-section">
-                    <h3>Languages</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">C#</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">Go</span>
-                        <span class="skill-tag">Rust</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Swift</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">R</span>
-                        <span class="skill-tag">Bash</span>
-                    </div>
-                </div>
-
-                <div class="skills-section">
-                    <h3>Technologies & Frameworks</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">AWS (Amplify, EC2, S3, Lambda, RDS)</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Hadoop</span>
-                        <span class="skill-tag">Spark</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Oracle</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">YOLOv8</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">GraphQL</span>
-                        <span class="skill-tag">gRPC</span>
-                        <span class="skill-tag">CircleCI</span>
-                        <span class="skill-tag">Selenium</span>
-                        <span class="skill-tag">JUnit</span>
-                    </div>
-                </div>
-
-                <div class="skills-section">
-                    <h3>Tools & Certifications</h3>
-                    <div class="skills-container">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Alteryx Designer (Core Certified)</span>
-                        <span class="skill-tag">Bloomberg Market Concepts (BMC)</span>
-                        <span class="skill-tag">Vim</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">IntelliJ</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">DevShell</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <footer style="text-align: center; margin-top: 4rem; color: var(--text-muted); font-size: 0.9rem;">
-            <p>Graduating December 2026 | College of Science Dean's List</p>
-        </footer>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="logo">AK</span><span>Anish Ketha</span></div>
+      <nav class="stack" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <button id="theme" class="theme-switch" aria-pressed="false" aria-label="Toggle light mode">☀️</button>
+      </nav>
     </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="card">
+        <h1>Hey, I'm <strong>Anish Ketha</strong></h1>
+        <h2 class="muted" style="margin-top:6px">ML Engineer &amp; Software Engineer</h2>
+
+        <p class="muted" style="margin-top:8px">
+          Purdue CS &amp; Finance (Dec 2026). Hackathon Finalist: <strong>JPMorgan (3rd)</strong>, <strong>Ignite WebAR &amp; AI (2nd)</strong>.
+          I like trying things out, learning as I go, and making each version better than the last.
+        </p>
+
+        <div class="kpi" role="list" aria-label="Highlights">
+          <div class="pill" role="listitem">JPMorgan Global Hackathon — 3rd</div>
+          <div class="pill" role="listitem">Ignite Pitch-Off (WebAR &amp; AI) — 2nd</div>
+          <div class="pill" role="listitem">Dean’s List — College of Science</div>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <a class="btn" href="AnishK - Resume (Dec 2026)_3.pdf" target="_blank">📄 Download Resume</a>
+          <a class="btn" href="mailto:kethaa0314@gmail.com">✉️ Email me</a>
+        </div>
+
+        <div class="divider" style="margin-top:18px"></div>
+        <h2 style="margin-top:12px">Now</h2>
+        <ul class="bullets">
+          <li>Building AI agents at <strong>Johnson &amp; Johnson</strong> to automate global treasury data pipelines.</li>
+          <li>Prototyping <strong>WayFindAR</strong> — AR indoor navigation with <strong>LLM-guided</strong> route intelligence.</li>
+          <li>Shipping React/TypeScript frontends and clean, testable Java/Spring backends.</li>
+        </ul>
+        <div class="stack" style="margin-top:12px">
+          <span class="chip">Python</span><span class="chip">Java</span><span class="chip">TypeScript</span>
+          <span class="chip">React</span><span class="chip">Spring Boot</span><span class="chip">PySpark</span>
+          <span class="chip">AWS</span><span class="chip">SQL</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="portrait.jpg" alt="Professional portrait of Anish Ketha" class="portrait" />
+
+        <!-- ICONS directly under the portrait -->
+        <div class="icon-row" aria-label="Profile links" id="socials-container">
+          <button class="icon-btn" title="LinkedIn" aria-label="LinkedIn"
+                  onclick="window.open('https://www.linkedin.com/in/anishketha', '_blank')">
+            <i class="fa-brands fa-linkedin"></i>
+          </button>
+          <button class="icon-btn circle" title="GitHub" aria-label="GitHub"
+                  onclick="window.open('https://github.com/KingShmo', '_blank')">
+            <i class="fa-brands fa-github"></i>
+          </button>
+          <button class="icon-btn resume" title="Résumé (PDF)" aria-label="Resume"
+                  onclick="window.open('AnishK - Resume (Dec 2026)_3.pdf', '_blank')">
+            <i class="fa-solid fa-file-lines"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+      <div class="about-header">Get to Know More</div>
+      <h2>About Me</h2>
+      <div class="about-flex">
+        <img src="coding_cartoon.png" alt="Coding cartoon" class="about-cartoon" />
+        <div class="about-main">
+          <div class="about-details-container">
+            <div class="about-containers">
+              <div class="details-container">
+                <i class="fa-solid fa-briefcase icon" style="font-size:28px"></i>
+                <h3>Experience</h3>
+                <p><span class="italic">4 Internships<br/>SWE, ML, Finance</span></p>
+              </div>
+              <div class="details-container">
+                <i class="fa-solid fa-graduation-cap icon" style="font-size:28px"></i>
+                <h3>Education</h3>
+                <p><span class="italic">Purdue University<br/>CS &amp; Finance (Dec 2026)</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="about-text">
+            <p>Hello! I'm a student at Purdue University double majoring in Computer Science and Finance. I’ve completed internships and projects across ML, fintech, and software engineering—focused on ETL automation, AI agents, and full-stack development.</p>
+            <p>I'm seeking full-time roles in ML engineering, software engineering, and quantitative research. I like pairing clear user experiences with robust, scalable engineering.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-title"><h2><i class="fas fa-briefcase"></i> Experience</h2></div>
+      <div class="grid">
+        
+        <!-- J&J Card -->
+        <article class="card item span-12 brand-jj">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+            <div>
+              <h3 style="margin:0; color:#fff;">Johnson &amp; Johnson</h3>
+              <p class="muted" style="margin:4px 0 0 0;"><em>Software Engineer Intern</em></p>
+            </div>
+            <span class="kpi pill" style="margin:0;">June 2026 – August 2026 • New Brunswick, NJ</span>
+          </div>
+          <ul class="bullets" style="margin-top:16px;">
+            <li>Developed AI agents spanning input, routing, execution, and quality validation layers for anomaly detection in balance sheet account reconciliations, clearing over 60,000 unreconciled transactions across a global treasury portfolio.</li>
+            <li>Built a composite risk scoring model that classified 2,200 balance sheet accounts by severity, enabling finance teams to prioritize reconciliation items.</li>
+            <li>Used PySpark and SparkR to migrate forecasting models and data objects from Domino to Databricks, consolidating data from SAP S/4HANA, SAP Central Finance, and SAP Datasphere.</li>
+            <li>Created a SQL data model that unified actual, targeted, and predicted revenue data across regional and product segments, replacing Excel outputs with Power BI dashboards and a Copilot Q&amp;A interface for forecasting insights.</li>
+          </ul>
+        </article>
+
+        <!-- JPMorgan Chase Card -->
+        <article class="card item span-12 brand-jpmc">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+            <div>
+              <h3 style="margin:0; color:#fff;">JPMorgan Chase</h3>
+              <p class="muted" style="margin:4px 0 0 0;"><em>Corporate Summer Analyst</em></p>
+            </div>
+            <span class="kpi pill" style="margin:0;">June 2025 – August 2025 • Newark, DE</span>
+          </div>
+          <ul class="bullets" style="margin-top:16px;">
+            <li>Engineered end-to-end data workflows using Alteryx and Python, implementing ETL pipelines that eliminated over 1,460 hours of manual processing annually and enabled real-time reporting for strategic decision-making.</li>
+            <li>Deployed an automated reconciliation workflow for the APAC region that scans millions of ledger entries and flags unsettled transactions, saving 200 hours annually and reducing reconciliation errors by 30%.</li>
+            <li>Applied Agile/Scrum methodology using Jira and Git to coordinate software delivery, accelerating MVP delivery timelines and reducing bug resolution time by 25%.</li>
+          </ul>
+        </article>
+
+        <!-- Ascendion Card -->
+        <article class="card item span-12 brand-ascendion">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+            <div>
+              <h3 style="margin:0; color:#fff;">Ascendion</h3>
+              <p class="muted" style="margin:4px 0 0 0;"><em>Machine Learning Engineer</em></p>
+            </div>
+            <span class="kpi pill" style="margin:0;">June 2023 – August 2023 • Basking Ridge, NJ</span>
+          </div>
+          <ul class="bullets" style="margin-top:16px;">
+            <li>Developed predictive simulation components within a Divestiture Portfolio using C#, React, and Bootstrap to forecast budget allocations and visualize financial outcomes under varying asset sale scenarios.</li>
+            <li>Generated and queried Neo4j graph databases to model and visualize asset dependencies, enabling risk assessment in divestiture planning.</li>
+            <li>Created a Healthcare Chatbot using PyTorch, spaCy, and OpenCV that processes medical data to classify user-submitted images and symptoms, diagnose illnesses, and recommend potential treatments.</li>
+          </ul>
+        </article>
+
+        <!-- Coca-Cola Card -->
+        <article class="card item span-12 brand-coke">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
+            <div>
+              <h3 style="margin:0; color:#fff;">The Coca-Cola Company</h3>
+              <p class="muted" style="margin:4px 0 0 0;"><em>Asset Auditor</em></p>
+            </div>
+            <span class="kpi pill" style="margin:0;">June 2022 – August 2022 • Brooklyn, NY</span>
+          </div>
+          <ul class="bullets" style="margin-top:16px;">
+            <li>Automated asset tracking by processing audit data in Python with Pandas and advanced Excel formulas/pivot tables, saving over 900 hours annually in reporting time.</li>
+            <li>Developed automated analytics dashboards using Python and Excel to process asset performance data, apply statistical trend analysis, and identify high-retention locations for targeted asset placement.</li>
+            <li>Optimized surveyor routing using data-driven geographic clustering, improving operational efficiency and increasing daily asset audits by 40%.</li>
+          </ul>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title"><h2><i class="fas fa-code"></i> Projects</h2></div>
+      <div class="filter" aria-label="Project filters">
+        <button class="toggle active" data-tag="all">All</button>
+        <button class="toggle" data-tag="ml">ML/AI</button>
+        <button class="toggle" data-tag="fullstack">Full-stack</button>
+        <button class="toggle" data-tag="ar">AR/3D</button>
+        <button class="toggle" data-tag="quant">Finance/Quant</button>
+      </div>
+
+      <div class="grid" id="project-grid">
+        <article class="card item project span-6" data-tags="ar fullstack">
+          <h3>WayFindAR</h3>
+          <p class="muted">Web/mobile indoor navigation overlaying <strong>3D directions</strong> on camera feeds (TypeScript, Three.js). <strong>LLM-guided</strong> route tips. <strong>Pitch-Off: WebAR &amp; AI — 2nd Place</strong>.</p>
+          <div class="stack">
+            <span class="chip">TypeScript</span><span class="chip">Three.js</span><span class="chip">Java</span><span class="chip">LLMs</span><span class="chip">MindAR.js</span>
+          </div>
+          <div class="stack" style="margin-top:8px">
+            <a href="#" class="badge" aria-disabled="true">Demo (internal)</a>
+            <a class="badge" href="https://youtu.be/5oLOx7MUNLE" target="_blank" rel="noopener">Pitch video</a>
+          </div>
+        </article>
+
+        <article class="card item project span-6" data-tags="fullstack ml">
+          <h3>Chase Wrapped</h3>
+          <p class="muted">Interactive narratives for financial summaries. Delivered live demo to panel, securing <strong>3rd place</strong> at JPMorgan Global Hackathon.</p>
+          <div class="stack">
+            <span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">React</span><span class="chip">REST APIs</span>
+          </div>
+          <div class="stack" style="margin-top:8px">
+            <a class="badge" href="https://youtu.be/_kFUI5TX-qA" target="_blank" rel="noopener">Demo</a>
+          </div>
+        </article>
+
+        <article class="card item project span-6" data-tags="ml">
+          <h3>Credit Card Fraud Detection</h3>
+          <p class="muted">Engineered features on transaction patterns and trained Naive Bayes and Random Forest classifiers with cross-validation for fraud detection.</p>
+          <div class="stack">
+            <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Seaborn</span><span class="chip">NumPy</span>
+          </div>
+          <div class="stack" style="margin-top:8px">
+             <a class="badge" href="https://github.com/KingShmo" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card item project span-6" data-tags="quant">
+          <h3>Factor-Based Stock-Picking</h3>
+          <p class="muted">Ranked U.S. equities by Momentum, Value, Quality, Defensive; backtested deciles; visualized return spreads and growth of $1.</p>
+          <div class="stack">
+            <span class="chip">R</span><span class="chip">Quarto</span>
+            <a class="badge" href="https://github.com/KingShmo/Financial-Modeling-in-R-/blob/main/Anish%20Ketha%20-%20Project%203%20-%20Create%20a%20Stock-Picking%20Strategy.pdf" target="_blank" rel="noopener">Paper</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-title"><h2><i class="fas fa-lightbulb"></i> Skills</h2></div>
+      <div class="grid">
+        <div class="card span-6">
+          <h3>Core Languages</h3>
+          <div class="skill-grid">
+            <div class="skill-item"><div class="skill-header"><span>Python</span><span>95%</span></div><div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>Java</span><span>90%</span></div><div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>TypeScript / JS</span><span>85%</span></div><div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>C / C++ / C#</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><span>SQL / R</span><span>80%</span></div><div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="card span-6">
+          <h3>Technologies &amp; Frameworks</h3>
+          <div style="margin-top: 16px;">
+            <div style="margin-bottom: 16px;">
+              <h4 style="margin:0 0 8px 0; color:var(--muted);">Infrastructure &amp; Data</h4>
+              <div class="stack">
+                <span class="chip">AWS</span>
+                <span class="chip">Docker</span>
+                <span class="chip">Kubernetes</span>
+                <span class="chip">Hadoop</span>
+                <span class="chip">Spark / PySpark</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">MongoDB</span>
+                <span class="chip">Oracle</span>
+              </div>
+            </div>
+            <div style="margin-bottom: 16px;">
+              <h4 style="margin:0 0 8px 0; color:var(--muted);">ML/AI</h4>
+              <div class="stack">
+                <span class="chip">TensorFlow</span>
+                <span class="chip">PyTorch</span>
+                <span class="chip">Keras</span>
+                <span class="chip">YOLOv8</span>
+              </div>
+            </div>
+            <div>
+              <h4 style="margin:0 0 8px 0; color:var(--muted);">Web &amp; APIs</h4>
+              <div class="stack">
+                <span class="chip">React</span>
+                <span class="chip">Spring Boot</span>
+                <span class="chip">Node.js</span>
+                <span class="chip">Flask</span>
+                <span class="chip">GraphQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card span-6">
+          <h3>Certifications &amp; Achievements</h3>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;">
+            <div style="display:flex;align-items:center;gap:10px;"><i class="fas fa-certificate" style="color:var(--accent);"></i> <span>Alteryx Designer Core</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><i class="fas fa-award" style="color:var(--accent);"></i> <span>Bloomberg Market Concepts (BMC)</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><i class="fas fa-medal" style="color:var(--accent);"></i> <span>JPMorgan Global Hackathon – 3rd Place</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><i class="fas fa-medal" style="color:var(--accent);"></i> <span>Ignite WebAR &amp; AI Pitch-Off – 2nd Place</span></div>
+          </div>
+        </div>
+
+        <div class="card span-6">
+          <h3>Tools &amp; Environments</h3>
+          <div class="stack" style="margin-top:16px;">
+            <span class="chip">Git</span>
+            <span class="chip">Alteryx Designer</span>
+            <span class="chip">DevShell</span>
+            <span class="chip">Jupyter / Google Colab</span>
+            <span class="chip">IntelliJ</span>
+            <span class="chip">VS Code</span>
+            <span class="chip">Vim</span>
+            <span class="chip">Figma</span>
+            <span class="chip">CircleCI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="span-12">
+      <div class="section-title"><h2><i class="fas fa-envelope"></i> Contact</h2></div>
+      <div class="card">
+        <div class="grid">
+          <div class="span-6">
+            <p><strong>Based in:</strong> New Jersey &amp; Indiana</p>
+            <p><strong>Email:</strong> <a href="mailto:kethaa0314@gmail.com">kethaa0314@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+17327725810">+1 (732) 772-5810</a></p>
+          </div>
+          <div class="span-6">
+            <p><strong>Links:</strong></p>
+            <div class="icon-row" style="justify-content:flex-start">
+              <button class="icon-btn" title="LinkedIn" aria-label="LinkedIn"
+                      onclick="window.open('https://www.linkedin.com/in/anishketha', '_blank')">
+                <i class="fa-brands fa-linkedin"></i>
+              </button>
+              <button class="icon-btn circle" title="GitHub" aria-label="GitHub"
+                      onclick="window.open('https://github.com/KingShmo', '_blank')">
+                <i class="fa-brands fa-github"></i>
+              </button>
+              <button class="icon-btn resume" title="Résumé (PDF)" aria-label="Résumé"
+                      onclick="window.open('AnishK - Resume (Dec 2026)_3.pdf', '_blank')">
+                <i class="fa-solid fa-file-lines"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container footer">
+      <div class="divider"></div>
+      <p style="text-align: center; margin-top: 16px;">© <span id="y"></span> Anish Ketha — Purdue University '26</p>
+    </footer>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle (persisted)
+    const html = document.documentElement;
+    const btn = document.getElementById('theme');
+    const stored = localStorage.getItem('theme');
+    if (stored){ html.className = stored; btn.textContent = stored === 'light' ? '🌙' : '☀️'; }
+    btn.addEventListener('click', () => {
+      const light = html.classList.toggle('light');
+      btn.textContent = light ? '🌙' : '☀️';
+      btn.setAttribute('aria-pressed', light);
+      localStorage.setItem('theme', light ? 'light' : '');
+    });
+
+    // Animate skill progress bars on scroll
+    document.querySelectorAll('.skill-progress').forEach(bar => {
+      const width = bar.style.width; bar.style.width = '0%';
+      const obs = new IntersectionObserver(e => {
+        if (e[0].isIntersecting){ bar.style.width = width; obs.unobserve(bar); }
+      }, { threshold: .5 });
+      obs.observe(bar);
+    });
+
+    // Projects filter logic
+    const toggles = document.querySelectorAll('.toggle');
+    const projects = document.querySelectorAll('#project-grid .project');
+    toggles.forEach(t => t.addEventListener('click', () => {
+      toggles.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const tag = t.dataset.tag;
+      projects.forEach(p => {
+        const tags = p.dataset.tags.split(' ');
+        p.style.display = (tag === 'all' || tags.includes(tag)) ? '' : 'none';
+      });
+    }));
+
+    // Pretty fade-in for projects
+    const projObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          projObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .25 });
+    document.querySelectorAll('.project').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(14px)';
+      projObs.observe(card);
+    });
+  </script>
 </body>
 </html>
